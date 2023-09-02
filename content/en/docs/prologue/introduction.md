@@ -21,7 +21,6 @@ One page summary of how to start a new Open-Set-Go project. [Quick Start →](ht
 
 One page summarizing commands for common tasks in Open-Set-Go. [Commands →](https://open-set-go.netlify.app/docs/prologue/commands/)
 
-
 ## Go further
 
 Recipes, Reference Guides, Extensions, and Showcase.
@@ -29,7 +28,6 @@ Recipes, Reference Guides, Extensions, and Showcase.
 ### Template Guides
 
 Learn how to customize Doks to fully make it your own. [Template Guides →](https://open-set-go.netlify.app/docs/templates/express/)
-
 
 ## Contributing
 

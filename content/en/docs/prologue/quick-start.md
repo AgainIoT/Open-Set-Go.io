@@ -14,12 +14,15 @@ toc: true
 ---
 
 #### ➡️ Start
+
 1. Clone our repository with recursive options.
+
 ```bash
 git clone AgainIoT/Open-Set-Go_server --recursive
 ```
 
-2. After cloning the repo, and run yarn to install dependencies!
+1. After cloning the repo, and run yarn to install dependencies!
+
 ```bash
 yarn install
 ```

@@ -11,20 +11,23 @@ contributors: ["AgainIoT"]
 pinned: false
 homepage: false
 ---
+
 ## Introduction
- 'Project Starting Toolkit' for open SW developers who can easily and easily start an Open Source project
- 
- ## Functionalities
-[<li> Repository]()
 
-[<li> Pull Request]()
+'Project Starting Toolkit' for open SW developers who can easily and easily start an Open Source project
 
-[<li> Issue]()
+## Functionalities
 
-[<li> License]()
+[<li> Repository]("")
 
+[<li> Pull Request]("")
+
+[<li> Issue]("")
+
+[<li> License]("")
 
 ## Website
+
 [<li> GitHuB](https://github.com/AgainIoT/Open-Set-Go)
 
-[<li> Website]()
+[<li> Website]("")

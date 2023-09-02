@@ -12,16 +12,20 @@ menu:
 weight: 999
 toc: true
 ---
+
 ## Express
+
 1. Express requires Node.js 18.x.<br>
-  Node Installation Shortcuts. [Node.js →](https://nodejs.org/en/)
+   Node Installation Shortcuts. [Node.js →](https://nodejs.org/en/)
 
 2. install the depencensies
-    ```bash
-    npm install
-    ```
+
+   ```bash
+   npm install
+   ```
 
 3. run express
+
     ```bash
-    npm run start
+      npm run start
     ```

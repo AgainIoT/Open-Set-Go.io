@@ -18,16 +18,19 @@ toc: true
   Node Installation Shortcuts. [Node.js →](https://nodejs.org/en/)
 
 2. install the depencensies<br>
+
     ```bash
     npm install
     ```
 
 3. configure the NestJS server
+
     ```bash
     npm i -g @nestjs/cli
     ```
 
 4. run nestjs
+
     ```bash
     npm run start
     ```
