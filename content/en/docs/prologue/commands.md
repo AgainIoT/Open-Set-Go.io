@@ -1,7 +1,7 @@
 ---
 title: "Commands"
-description: "Doks comes with commands for common tasks."
-lead: "Doks comes with commands for common tasks."
+description: "Open-Set-Go comes with commands for common tasks."
+lead: "Open-Set-Go comes with commands for common tasks.."
 date: 2020-10-13T15:21:01+02:00
 lastmod: 2020-10-13T15:21:01+02:00
 draft: false
@@ -13,100 +13,50 @@ weight: 130
 toc: true
 ---
 
-{{< alert icon="💡" text="You can change the commands in the scripts section of `./package.json`." />}}
+{{< alert icon="💡" text="You can check the command in the Script section of '/package.json'." />}}
 
-## create
+## Build
 
-Create new content for your site:
-
-```bash
-npm run create [path] [flags]
-```
-
-See also the Hugo docs: [hugo new](https://gohugo.io/commands/hugo_new/).
-
-### Docs based tree
-
-Create a docs based tree — with a single command:
+Build project:
 
 ```bash
-npm run create -- --kind docs [section]
+yarn build
 ```
 
-For example, create a docs based tree named guides:
+## Start
+
+Command to Execute:
 
 ```bash
-npm run create -- --kind docs guides
+yarn start
 ```
 
-## lint
+Instructions that can be executed immediately and watch the results immediately:
+
+```bash
+yarn start:dev
+```
+
+## Lint
 
 Check scripts, styles, and markdown for errors:
 
 ```bash
-npm run lint
+yarn lint
 ```
 
-### scripts
+### Deploy
 
-Check scripts for errors:
+Deploy project:
 
 ```bash
-npm run lint:scripts [-- --fix]
+yarn deploy
 ```
 
-### styles
+### CI
 
-Check styles for errors:
-
-```bash
-npm run lint:styles [-- --fix]
-```
-
-### markdown
-
-Check markdown for errors:
+Code Style Verification (code commitment only when passing CI):
 
 ```bash
-npm run lint:markdown [-- --fix]
-```
-
-## clean
-
-Delete temporary directories:
-
-```bash
-npm run clean
-```
-
-## start
-
-Start local development server:
-
-```bash
-npm run start
-```
-
-## build
-
-Build production website:
-
-```bash
-npm run build
-```
-
-### functions
-
-Build Lambda functions:
-
-```bash
-npm run build:functions
-```
-
-### preview
-
-Build production website including draft and future content:
-
-```bash
-npm run build:preview
+yarn CI
 ```

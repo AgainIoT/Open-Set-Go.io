@@ -8,7 +8,7 @@
   "browserslist": [
     "defaults"
   ],
-  "repository": "https://github.com/h-enk/doks",
+  "repository": "https://github.com/AgainIoT/Open-Set-Go",
   "license": "MIT",
   "publishConfig": {
     "access": "public"
