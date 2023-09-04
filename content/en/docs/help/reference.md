@@ -37,5 +37,3 @@ toc: true
 [<li> ESlint](https://eslint.org/)
 
 [<li> Auto Rename Tag](https://github.com/formulahendry/vscode-auto-rename-tag)
-
-
