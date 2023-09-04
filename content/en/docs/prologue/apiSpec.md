@@ -293,22 +293,34 @@ PR?)
 
 ```json
 [
-  {
-    "_id": "64ed7ca9c7efe914a8d14a4f",
-    "type": "0:Welcome",
-    "title": "Welcome to Open-Set-Go contributing guide",
-    "repoName": "AgainIoT/Open-Set-Go",
-    "repoUrl": "https://github.com/AgainIoT/Open-Set-Go",
-    "content": "## Welcome to Open-Set-Go contributing guide\n\nThank you for investing your time in contributing to our Open-Set-Go project! Any contribution you make will be reflected on [Open-Set-Go.io](https://open-set-go.netlify.app/) & [README.md](https://github.com/AgainIoT/Open-Set-Go#contributors) ✨.\n\nWe are committed to fostering a contribution-friendly environment that encourages contributions and aims to evolve into an open-source community. Please have a lot of conversations on [our Discussion](https://github.com/AgainIoT/Open-Set-Go/discussions)!\n\nIn this guide you will get an overview of the contribution workflow from opening an issue, creating a PR, reviewing, and merging the PR.\n<br>"
-  },
-  {
-    "_id": "64ed7cf5c7efe914a8d14a50",
-    "type": "0:Welcome",
-    "title": "Welcome to GitHub docs contributing guide",
-    "repoName": "github/docs",
-    "repoUrl": "https://github.com/github/docs",
-    "content": "## Welcome to GitHub docs contributing guide <!-- omit in toc -->\n\nThank you for investing your time in contributing to our project! Any contribution you make will be reflected on [docs.github.com](https://docs.github.com/en) ✨.\n\nRead our [Code of Conduct](./CODE_OF_CONDUCT.md) to keep our community approachable and respectable.\n\nIn this guide you will get an overview of the contribution workflow from opening an issue, creating a PR, reviewing, and merging the PR.\n\nUse the table of contents icon <img src=\"https://github.com/github/docs/raw/main/contributing/images/table-of-contents.png\" width=\"25\" height=\"25\" /> on the top left corner of this document to get to a specific section of this guide quickly."
-  }
+  [
+    {
+      "_id": "64ed7ca9c7efe914a8d14a4f",
+      "type": "0.Welcome",
+      "title": "Welcome to Open-Set-Go contributing guide",
+      "repoName": "AgainIoT/Open-Set-Go",
+      "repoUrl": "https://github.com/AgainIoT/Open-Set-Go",
+      "content": "# Welcome to Open-Set-Go contributing guide\n\nThank you for investing your time in contributing to our Open-Set-Go project! Any contribution you make will be reflected on [Open-Set-Go.io](https://open-set-go.netlify.app/) & [README.md](https://github.com/AgainIoT/Open-Set-Go#contributors) ✨.\n\nWe are committed to fostering a contribution-friendly environment that encourages contributions and aims to evolve into an open-source community. Please have a lot of conversations on [our Discussion](https://github.com/AgainIoT/Open-Set-Go/discussions)!\n\nIn this guide you will get an overview of the contribution workflow from opening an issue, creating a PR, reviewing, and merging the PR.\n<br>"
+    },
+    {
+      "_id": "64ed7cf5c7efe914a8d14a50",
+      "type": "0.Welcome",
+      "title": "Welcome to GitHub docs contributing guide",
+      "repoName": "github/docs",
+      "repoUrl": "https://github.com/github/docs",
+      "content": "# Welcome to GitHub docs contributing guide <!-- omit in toc -->\n\nThank you for investing your time in contributing to our project! Any contribution you make will be reflected on [docs.github.com](https://docs.github.com/en) ✨.\n\nRead our [Code of Conduct](./CODE_OF_CONDUCT.md) to keep our community approachable and respectable.\n\nIn this guide you will get an overview of the contribution workflow from opening an issue, creating a PR, reviewing, and merging the PR.\n\nUse the table of contents icon <img src=\"https://github.com/github/docs/raw/main/contributing/images/table-of-contents.png\" width=\"25\" height=\"25\" /> on the top left corner of this document to get to a specific section of this guide quickly."
+    }
+  ],
+  [
+    {
+      "_id": "64ee1bca9dede57491a7c180",
+      "type": "1.Ways to contribute",
+      "title": "Ways to contribute by Open-Set-Go",
+      "repoName": "AgainIoT/Open-Set-Go",
+      "repoUrl": "https://github.com/AgainIoT/Open-Set-Go",
+      "content": "## Ways to contribute\n\n### Contributors\n\nThere are several ways you can contribute to Open-Set-Go!\n\n- Troubleshoot problems that existed code.\n- Submit Bug/Feature issues related to [bugs](https://github.com/AgainIoT/Open-Set-Go/issues?q=is%3Aopen+is%3Aissue+label%3Abug) or desired [new features](https://github.com/AgainIoT/Open-Set-Go/issues?q=is%3Aopen+is%3Aissue+label%3Afeature-request).\n- Submit Documentation issues for insufficient documents, translations.\n- Start conversation at [Discussions](https://github.com/AgainIoT/Open-Set-Go/discussions) to provide a good example of preset.\n- Start conversation by posting to [Discussions](https://github.com/AgainIoT/Open-Set-Go/discussions) about a framework that needs support.\n- If there's anything you'd like to communicate about our project or open source, feel free to post it on [Discussions](https://github.com/AgainIoT/Open-Set-Go/discussions)! _\"We hope that **Open-Set-Go Discussions** will become an active community.\"_\n\n### Collaborators\n\nIf you want to contribute directly to our project, be our collaborators at Open-Set-Go! Join the [Slack](https://join.slack.com/t/open-set-go/shared_invite/zt-21jwlzs9g-qrajfUblcCtmCqAy0Xxj8w) to become a collaborator!\n\n- **Develop Main Features**: <br>\n  Collaborator will develop the main features with maintainers based on milestone\n  All contributions are equally valuable and valuable to Open-Set-Go projects.and issues.\n\n- **Communication**: <br>\n  Communicate with Open-Set-Go maintainers with [Slack](https://join.slack.com/t/open-set-go/shared_invite/zt-21jwlzs9g-qrajfUblcCtmCqAy0Xxj8w) to carry out the project.\n\n<br>\n\n> All contributions are equally valuable and valuable to Open-Set-Go projects.\n\n<br>"
+    }
+  ]
 ]
 ```
 
