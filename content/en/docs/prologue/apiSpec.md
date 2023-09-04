@@ -324,7 +324,7 @@ PR?)
 ]
 ```
 
-### /file/contributing/\<id>
+### /file/readme/\<id>
 
 #### Response Body
 
@@ -344,7 +344,7 @@ merging the PR.
 <br>
 ```
 
-### /file/contributing/\<id>
+### /file/readme/\<id>
 
 #### Response Body
 
