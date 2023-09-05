@@ -2,8 +2,8 @@
 title: "How did we develop Open-Set-Go"
 description: "Our team, AgainIot, introduces the background and purpose of creating Open-Set-Go."
 excerpt: "Our team, AgainIot, introduces the background and purpose of creating Open-Set-Go."
-date: 2020-11-04T09:19:42+01:00
-lastmod: 2020-11-04T09:19:42+01:00
+date: 2023-09-05T16:06:55+00:00
+lastmod: 2023-09-05T16:06:55+00:00
 draft: false
 weight: 50
 images: [againIoT.png]
@@ -14,7 +14,7 @@ pinned: false
 homepage: false
 ---
 
-### Background of Development
+### <li> Background of Development
 
 ---
 
@@ -24,7 +24,7 @@ In the British and American regions, not only public SW camps such as LINUX, but
 
 Therefore, the ultimate goal of the Open-Set-Go project is to lower the entry barriers of open SW and to create tools to easily start open source projects.
 
-### Purpose of Development
+### <li> Purpose of Development
 
 ---
 
