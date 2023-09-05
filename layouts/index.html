@@ -5,58 +5,75 @@
       <h1 class="mt-0">{{ .Title }}</h1>
     </div>
     <div class="col-lg-9 col-xl-8 text-center">
-      <img src="https://raw.githubusercontent.com/AgainIoT/Open-Set-Go/main/.github/images/Open-Set-Go.jpg" alt="Logo" width="200" height="200">
+      <img src="favicon.ico" alt="Logo" width="200" height="200" />
       <p class="lead">{{ .Params.lead | safeHTML }}</p>
-      <a class="btn btn-primary btn-lg px-4 mb-2" href="/docs/{{ if .Site.Params.options.docsVersioning }}{{ .Site.Params.docsVersion }}/{{ end }}prologue/introduction/" role="button">{{ i18n "get-started" }}</a>
+      <a
+        class="btn btn-primary btn-lg px-4 mb-2"
+        href="/docs/{{ if .Site.Params.options.docsVersioning }}{{ .Site.Params.docsVersion }}/{{ end }}prologue/introduction/"
+        role="button"
+        >{{ i18n "get-started" }}</a
+      >
       <!-- <p class="meta">Open-source MIT Licensed. <a href="https://github.com/h-enk/doks">GitHub v{{ $data := getJSON "/package.json" }}{{ $data.version }}</a></p> -->
     </div>
   </div>
 </section>
-{{ end }}
-
-{{ define "sidebar-prefooter" }}
-  {{ if eq $.Site.Language.LanguageName "English" }}
-  <section class="section section-sm">
-    <div class="container">
-      <div class="row justify-content-center text-center">
-        <div class="col-lg-5">
-          <h2 class="h4">💡 Simple</h2>
-          <p>It is simple because it informs all the essential elements.</p>
-        </div>
-        <div class="col-lg-5">
-          <h2 class="h4">⚡ Quick</h2>
-          <p>When creating a repository, it is faster through <br> the step of setting it up along with providing <br> reference to the recommended elements.</p>
-        </div>
-        <div class="col-lg-5">
-          <h2 class="h4">🚀 Trendy</h2>
-          <p>It can reflect the latest trends by recommending <br> templates and presets that people use <br> a lot these days.</p>
-        </div>
+{{ end }} {{ define "sidebar-prefooter" }} {{ if eq $.Site.Language.LanguageName
+"English" }}
+<section class="section section-sm">
+  <div class="container">
+    <div class="row justify-content-center text-center">
+      <div class="col-lg-5">
+        <h2 class="h4">💡 Simple</h2>
+        <p>It is simple because it informs all the essential elements.</p>
       </div>
-      <div class="row justify-content-center text-center">
-        <div class="col-lg-5">
-          <h2 class="h4">🖱️ Minimize repetition</h2>
-          <p>Provides templates and presets so that <br> users don't have to worry about it.</p>
-        </div>
-        <div class="col-lg-5">
-          <h2 class="h4">🛌 Comfort</h2>
-          <p>We receive suggestions not just for functions, <br> but for how open-source participants <br> can contribute comfortably.</p>
-        </div>
-        <div class="col-lg-5">
-          <h2 class="h4">📃 Document</h2>
-          <p>It is well documented, such as development <br> methods and introductions, so users can find all <br> the information they want in the project.</p>
-        </div>
+      <div class="col-lg-5">
+        <h2 class="h4">⚡ Quick</h2>
+        <p>
+          When creating a repository, it is faster through <br />
+          the step of setting it up along with providing <br />
+          reference to the recommended elements.
+        </p>
+      </div>
+      <div class="col-lg-5">
+        <h2 class="h4">🚀 Trendy</h2>
+        <p>
+          It can reflect the latest trends by recommending <br />
+          templates and presets that people use <br />
+          a lot these days.
+        </p>
       </div>
     </div>
-  </section>
-  {{ end }}
-{{ end }}
-
-{{ define "sidebar-footer" }}
+    <div class="row justify-content-center text-center">
+      <div class="col-lg-5">
+        <h2 class="h4">🖱️ Minimize repetition</h2>
+        <p>
+          Provides templates and presets so that <br />
+          users don't have to worry about it.
+        </p>
+      </div>
+      <div class="col-lg-5">
+        <h2 class="h4">🛌 Comfort</h2>
+        <p>
+          We receive suggestions not just for functions, <br />
+          but for how open-source participants <br />
+          can contribute comfortably.
+        </p>
+      </div>
+      <div class="col-lg-5">
+        <h2 class="h4">📃 Document</h2>
+        <p>
+          It is well documented, such as development <br />
+          methods and introductions, so users can find all <br />
+          the information they want in the project.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }} {{ end }} {{ define "sidebar-footer" }}
 <section class="section section-sm container-fluid">
   <div class="row justify-content-center text-center">
-    <div class="col-lg-9">
-      {{- .Content -}}
-    </div>
+    <div class="col-lg-9">{{- .Content -}}</div>
   </div>
 </section>
 {{ end }}
