@@ -13,10 +13,10 @@ weight: 999
 toc: true
 ---
 
-<img width='55' src='./react.png'>
+## <img src="../react.png" width="50"> React
 
-1. Express requires Node.js 18.x.<br>
-  Node Installation Shortcuts. [Node.js →](https://nodejs.org/en/)
+1. React requires Node.js 18.x.<br>
+   Node Installation Shortcuts. [Node.js →](https://nodejs.org/en/)
 
 2. install the depencensies
 

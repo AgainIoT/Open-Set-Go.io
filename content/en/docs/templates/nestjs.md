@@ -12,25 +12,26 @@ menu:
 weight: 999
 toc: true
 ---
-## NestJS
+
+## <img src="../nestjs.png" width = "50"> NestJS
 
 1. NestJS requires Node.js 16.x or higher.<br>
-  Node Installation Shortcuts. [Node.js →](https://nodejs.org/en/)
+   Node Installation Shortcuts. [Node.js →](https://nodejs.org/en/)
 
 2. install the depencensies<br>
 
-    ```bash
-    npm install
-    ```
+   ```bash
+   npm install
+   ```
 
 3. configure the NestJS server
 
-    ```bash
-    npm i -g @nestjs/cli
-    ```
+   ```bash
+   npm i -g @nestjs/cli
+   ```
 
 4. run nestjs
 
-    ```bash
-    npm run start
-    ```
+   ```bash
+   npm run start
+   ```
