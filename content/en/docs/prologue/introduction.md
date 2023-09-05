@@ -13,30 +13,36 @@ weight: 100
 toc: true
 ---
 
-### Quick Start
+### 🚀Quick Start
+
+---
 
 One page summary of how to start a new Open-Set-Go project. [Quick Start →](https://open-set-go.netlify.app/docs/prologue/quick-start/)
+<br></br>
 
-### Commands
+### 📌Commands
+
+---
 
 One page summarizing commands for common tasks in Open-Set-Go. [Commands →](https://open-set-go.netlify.app/docs/prologue/commands/)
+<br></br>
 
-## Go further
+### 🔎Template Guides
 
-Recipes, Reference Guides, Extensions, and Showcase.
-
-### Template Guides
+---
 
 Learn how to customize Doks to fully make it your own. [Template Guides →](https://open-set-go.netlify.app/docs/templates/express/)
+<br></br>
 
-## Contributing
+### 👩‍👩‍👧‍👦Contributing
+
+---
 
 Find out how to contribute to Doks. [Contributing →](http://github.com/AgainIoT/Open-Set-Go/blob/main/CONTRIBUTING.md)
+<br></br>
 
-### Showcase
+### 💡Help
 
-See what others have build with Doks. [Showcase →](https://open-set-go.netlify.app/docs/showcase/showcase/)
-
-## Help
+---
 
 Get help on Doks. [Help →](https://open-set-go.netlify.app/docs/help/faq/)
