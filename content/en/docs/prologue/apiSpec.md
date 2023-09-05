@@ -20,7 +20,7 @@ toc: true
 | GET    | /user/profile                        | only need cookies                               | [Response Body](#userprofile)        | User Info for user profile                  |
 | GET    | /user/grantedInfo                    | only need cookies                               | [Response Body](#usergrantedinfo)    | userInfo with org                           |
 | POST   | /repo                                | cookies + [Request Body](#repocheckduplication) | Status will send(NOT FOUND or OK)    | userInfo with org                           |
-| GET    | /repo/checkDuplication               | cookies + [Request Body](#repo)                 | true/false(Boolean)                  | check repository is duplicate               |
+| POST   | /repo/checkDuplication               | cookies + [Request Body](#repo)                 | true/false(Boolean)                  | check repository is duplicate               |
 | POST   | /mail                                | only need cookies                               | Status will send(NOT FOUND or OK)    | send mail to user(after respository create) |
 | POST   | /file                                | cookies + [Request Body](#file)                 | Status will send(NOT FOUND or OK)    | upload file to repository                   |
 | GET    | /file/supportedEnv                   |                                                 | [Response Body](#filesupportedenv)   | give supportedEnv                           |
@@ -87,7 +87,7 @@ toc: true
 
 ```json
 {
-  "userName": "AgainIoT",
+  "owner": "AgainIoT",
   "repoName": "Open-Set-Go"
 }
 ```
@@ -98,7 +98,7 @@ toc: true
 
 ```json
 {
-  "userName": "AgainIoT",
+  "owner": "AgainIoT",
   "repoName": "Open-Set-Go",
   "language": "JavaScript(Node.js)",
   "framework": "Express.js",
