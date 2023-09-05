@@ -18,16 +18,19 @@ homepage: false
 
 ## Functionalities
 
-[<li> Repository]("")
+<li> Repository
 
-[<li> Pull Request]("")
+<li> License
 
-[<li> Issue]("")
+<li> Pull-Request Template
 
-[<li> License]("")
+<li> Issue Template
+
+<li> CONTRIBUTING.md
+
+<li> README.md
 
 ## Website
 
 [<li> GitHuB](https://github.com/AgainIoT/Open-Set-Go)
-
-[<li> Website]("")
+[<li> Website]("https://www.open-set-go.com:3000/home/")
