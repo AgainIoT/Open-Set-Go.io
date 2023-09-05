@@ -1,7 +1,7 @@
 ---
 title: "Reference documents"
-description: "A page that summarizes the recommendation tool introduction, usage, etc"
-lead: "A page that summarizes the recommendation tool introduction, usage, etc"
+description: "One page that summarizes the recommendation tool introduction, usage, etc"
+lead: "One page that summarizes the recommendation tool introduction, usage, etc"
 date: 2023-09-04T01:04:30+09:00
 lastmod: 2023-09-04T01:04:30+09:00
 draft: false
