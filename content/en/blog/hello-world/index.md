@@ -6,7 +6,7 @@ date: 2023-09-05T16:06:55+00:00
 lastmod: 2023-09-05T16:06:55+00:00
 draft: false
 weight: 50
-images: [againIoT.png]
+images: [againIoT.jpg]
 categories: ["News"]
 tags: ["background", "development", "purpose"]
 contributors: ["AgainIoT"]
