@@ -45,4 +45,4 @@ Select and insert a preset for each content, and you can write the details accor
 ## Website
 
 [<li> GitHub](https://github.com/AgainIoT/Open-Set-Go)
-[<li> Website]("https://www.open-set-go.com:3000/home/")
+[<li> Website]("https://www.open-set-go.com:3000/")
