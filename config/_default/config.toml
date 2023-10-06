@@ -1,4 +1,4 @@
-baseurl = "https://open-set-go-docs.netlify.app/"
+baseurl = "https://docs.open-set-go.com/"
 canonifyURLs = false
 disableAliases = true
 disableHugoGeneratorInject = true
