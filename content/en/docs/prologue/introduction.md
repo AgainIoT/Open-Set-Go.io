@@ -17,21 +17,21 @@ toc: true
 
 ---
 
-One page summary of how to start a new Open-Set-Go project. [Quick Start →](https://open-set-go-docs.netlify.app/docs/prologue/quick-start/)
+One page summary of how to start a new Open-Set-Go project. [Quick Start →](https://docs.open-set-go.com/docs/prologue/quick-start/)
 <br></br>
 
 ### 📌Commands
 
 ---
 
-One page summarizing commands for common tasks in Open-Set-Go. [Commands →](https://open-set-go-docs.netlify.app/docs/prologue/commands/)
+One page summarizing commands for common tasks in Open-Set-Go. [Commands →](https://docs.open-set-go.com/docs/prologue/commands/)
 <br></br>
 
 ### 🔎Template Guides
 
 ---
 
-Learn how to customize Doks to fully make it your own. [Template Guides →](https://open-set-go-docs.netlify.app/docs/templates/express/)
+Learn how to customize Doks to fully make it your own. [Template Guides →](https://docs.open-set-go.com/docs/templates/express/)
 <br></br>
 
 ### 👩‍👩‍👧‍👦Contributing
@@ -45,4 +45,4 @@ Find out how to contribute to Doks. [Contributing →](http://github.com/AgainIo
 
 ---
 
-Get help on Doks. [Help →](https://open-set-go-docs.netlify.app/docs/help/faq/)
+Get help on Doks. [Help →](https://docs.open-set-go.com/docs/help/faq/)
