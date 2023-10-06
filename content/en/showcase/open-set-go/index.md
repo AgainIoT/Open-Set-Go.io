@@ -11,6 +11,7 @@ contributors: ["AgainIoT"]
 pinned: false
 homepage: false
 ---
+
 <img src="main.png" width = "1000" >
 
 ## Introduction
@@ -46,4 +47,4 @@ Select and insert a preset for each content, and you can write the details accor
 ## Website
 
 [<li> GitHub](https://github.com/AgainIoT/Open-Set-Go)
-[<li> Website]("https://www.open-set-go.com:3000/")
+[<li> Website]("https://www.open-set-go.com/")

@@ -12,7 +12,7 @@ description = "project Starting Toolkit for OpenSource SW developers who can eas
 ## Open Graph
 images = ["doks.png"]
 ogLocale = "en_US"
-domainTLD = "open-set-go.netlify.app"
+domainTLD = "open-set-go-docs.netlify.app"
 titleHome = "Doks Theme"
 
 ## JSON-LD
