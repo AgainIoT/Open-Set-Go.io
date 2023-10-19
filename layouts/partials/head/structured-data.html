@@ -30,17 +30,7 @@
       {{ end -}}
       "name": "{{ .Site.Params.schemaName }}",
       "url": {{ print $baseURL }},
-      "sameAs": [
-        {{ with .Site.Params.schemaTwitter -}}
-        {{ . }}
-        {{ end -}}
-        {{ with .Site.Params.schemaLinkedIn -}}
-        , {{ . }}
-        {{ end -}}
-        {{ with .Site.Params.schemaGitHub -}}
-        , {{ . }}
-        {{ end -}}
-      ],
+      "sameAs": [],
       {{ if eq .Site.Params.schemaType "Organization" -}}
         "logo": {
           "@type": "ImageObject",

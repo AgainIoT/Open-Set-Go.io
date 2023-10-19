@@ -1,7 +1,7 @@
 ---
 title: "Quick Start"
-description: "One page summary of how to start a new Doks project."
-lead: "One page summary of how to start a new Doks project."
+description: "One page summary of how to start a Open-Set-Go project."
+lead: "One page summary of how to start a Open-Set-Go project."
 date: 2020-11-16T13:59:39+01:00
 lastmod: 2020-11-16T13:59:39+01:00
 draft: false
@@ -13,67 +13,101 @@ weight: 110
 toc: true
 ---
 
-## Requirements
+### 🖥️Server
 
-- [Git](https://git-scm.com/) — latest source release
-- [Node.js](https://nodejs.org/) — latest LTS version or newer
-
-{{< details "Why Node.js?" >}}
-Doks uses npm (included with Node.js) to centralize dependency management, making it [easy to update]({{< relref "how-to-update" >}}) resources, build tooling, plugins, and build scripts.
-{{< /details >}}
-
-## Start a new Doks project
-
-Create a new site, change directories, install dependencies, and start development server.
-
-### Create a new site
-
-Doks is available as a child theme and a starter theme.
-
-#### Child theme
-
-- Intended for novice to intermediate users
-- Intended for minor customizations
-- [Easily update npm packages]({{< relref "how-to-update" >}}) — __including__ [Doks](https://www.npmjs.com/package/@hyas/doks)
+**<li> Clone our Repository**
 
 ```bash
-git clone https://github.com/h-enk/doks-child-theme.git my-doks-site
+git clone --recursive https://github.com/AgainIoT/Open-Set-Go_server.git
+
+######################################
+# Open-Set-Go Repository Dependencies
+#
+# Open-Set-Go_server
+#  ┗ environment-template
+#
+######################################
 ```
 
-#### Starter theme
+**<li> Install the Development Environment**
 
-- Intended for intermediate to advanced users
-- Intended for major customizations
-- [Easily update npm packages]({{< relref "how-to-update" >}})
+**<li> Install Node Dependencies**
 
 ```bash
-git clone https://github.com/h-enk/doks.git my-doks-site
+yarn install
 ```
 
-{{< details "Help me choose" >}}
-Not sure which one is for you? Pick the child theme.
-{{< /details >}}
+**<li> Create your own github-oauth app**
 
-### Change directories
+Follow the [GitHub Docs](https://docs.github.com/ko/apps/oauth-apps/building-oauth-apps/creating-an-oauth-app) to get Client ID & Client Secret.<br>
+If your Authorization URL should be `localhost:3000` !
+
+**<li> Create `.env` file at root to use secret environment**
 
 ```bash
-cd my-doks-site
+touch .env
 ```
 
-### Install dependencies
+**<li> Fill in the `.env` file as follows**
 
 ```bash
-npm install
+MONGODB_URI="<Your-MongoDB-URI-start-with-mongodb://>"
+CLIENT_ID="<Your-GitHub-OAuth-Client_ID>"
+CLIENT_SECRET="<Your-GitHub-OAuth-Client_Secret>"
+JWT_SECRET="<Any-JWT-Secret-You-Want>"
+JWT_EXPIRATION_TIME="<JWT-Expiration-Time-You-Want-default-18000>"
 ```
 
-### Start development server
+**<li> Start Open-Set-Go Server**
 
 ```bash
-npm run start
+  yarn start
 ```
 
-Doks will start the Hugo development webserver accessible by default at `http://localhost:1313`. Saved changes will live reload in the browser.
+### 🙎Client
 
-## Other commands
+**<li> Clone our Repository**
 
-Doks comes with commands for common tasks. [Commands →]({{< relref "commands" >}})
+```bash
+git clone https://github.com/AgainIoT/Open-Set-Go_client.git
+
+######################################
+# Open-Set-Go Repository Dependencies
+#
+# Open-Set-Go_client
+#
+######################################
+```
+
+**<li> Install the Development Environment**
+
+**<li> Install Node Dependencies**
+
+```bash
+  yarn install
+```
+
+**<li> Create your own github-oauth app**
+
+Follow the [GitHub Docs](https://docs.github.com/ko/apps/oauth-apps/building-oauth-apps/creating-an-oauth-app) to get Client ID & Client Secret.<br>
+If your Authorization URL should be `localhost:3000` !
+
+**<li> Create `.env` file at root to use secret environment**
+
+```bash
+touch .env
+```
+
+**<li> Fill in the `.env` file as follows**
+
+```bash
+REACT_APP_CLIENT_ID="<Your-GitHub-OAuth-Client_ID>"
+REACT_APP_REDIRECT_URL="http://localhost:3000/login"
+REACT_APP_SERVER_URL="http://localhost:8080"
+```
+
+**<li> Start Open-Set-Go Server**
+
+```bash
+yarn start
+```

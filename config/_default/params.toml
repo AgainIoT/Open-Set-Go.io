@@ -12,19 +12,14 @@ description = "project Starting Toolkit for OpenSource SW developers who can eas
 ## Open Graph
 images = ["doks.png"]
 ogLocale = "en_US"
-domainTLD = "open-set-go.netlify.app"
+domainTLD = "open-set-go-docs.netlify.app"
 titleHome = "Doks Theme"
-
-## Twitter Cards
-twitterSite = "@getdoks"
-twitterCreator = "@henkverlinde"
 
 ## JSON-LD
 # schemaType = "Person"
 schemaType = "Organization"
 schemaName = "Doks"
 schemaAuthor = "Henk Verlinde"
-schemaAuthorTwitter = "https://twitter.com/henkverlinde"
 schemaAuthorLinkedIn = "https://www.linkedin.com/in/henkverlinde/"
 schemaAuthorGitHub = "https://github.com/ymw0407"
 schemaLocale = "en-US"
@@ -34,7 +29,6 @@ schemaLogoHeight = 512
 schemaImage = "doks.png"
 schemaImageWidth = 1280
 schemaImageHeight = 640
-schemaTwitter = "https://twitter.com/getdoks"
 schemaLinkedIn = ""
 schemaGitHub = "https://github.com/AgainIoT/Open-Set-Go.io"
 schemaSection = "blog"
@@ -80,7 +74,7 @@ alertText = "Introducing the Doks child theme, several DX + UX updates, and more
 # repoHost [Github | Gitea | GitLab | Bitbucket | BitbucketServer ] is used for building the edit link based on git hoster
 repoHost = "GitHub"
 #repoHost = "Gitea"
-docsRepo = "https://github.com/AgainIoT/Open-Set-Go.io"
+docsRepo = "https://.com/AgainIoT/Open-Set-Go.io"
 docsRepoBranch = "main"
 docsRepoSubPath = ""
 editPage = false

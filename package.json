@@ -8,7 +8,7 @@
   "browserslist": [
     "defaults"
   ],
-  "repository": "https://github.com/h-enk/doks",
+  "repository": "https://github.com/AgainIoT/Open-Set-Go",
   "license": "MIT",
   "publishConfig": {
     "access": "public"
@@ -42,7 +42,7 @@
     "@babel/core": "^7.18",
     "@babel/preset-env": "^7.18",
     "@fullhuman/postcss-purgecss": "^5.0",
-    "@hyas/images": "^0.2.2",
+    "@hyas/images": "^1.0.2",
     "auto-changelog": "^2.4",
     "autoprefixer": "^10.4",
     "bootstrap": "^5.2.0-beta1",
@@ -63,7 +63,7 @@
     "purgecss-whitelister": "^2.4",
     "shx": "^0.3.4",
     "stylelint": "^14.9",
-    "stylelint-config-standard-scss": "^4.0"
+    "stylelint-config-standard-scss": "^6.1"
   },
   "otherDependencies": {
     "hugo": "0.107.0"
