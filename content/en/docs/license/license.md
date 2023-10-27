@@ -10,7 +10,7 @@ menu:
   docs:
     parent: "license"
     identifier: "license-5677179c5ded817788cab2ea8820717c"
-weight: 999
+weight: 100
 toc: true
 ---
 
