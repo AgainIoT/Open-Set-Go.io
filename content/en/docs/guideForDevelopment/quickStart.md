@@ -15,99 +15,88 @@ toc: true
 
 ### 🖥️Server
 
-**<li> Clone our Repository**
+**Install with script**
 
-```bash
-git clone --recursive https://github.com/AgainIoT/Open-Set-Go_server.git
+You can also easily install it through [install.sh](https://github.com/AgainIoT/Open-Set-Go#installation--development-environment)!
 
-######################################
-# Open-Set-Go Repository Dependencies
-#
-# Open-Set-Go_server
-#  ┗ environment-template
-#
-######################################
-```
+**Install with docker**
 
-**<li> Install the Development Environment**
+1. Pull our docker image!
 
-**<li> Install Node Dependencies**
+   ```
+    docker pull ymw0407/open-set-go_server
+   ```
 
-```bash
-yarn install
-```
+2. Create `.env` file at root to use secret environment
 
-**<li> Create your own github-oauth app**
+   > See more details at [EnvironmentVariable.md](https://github.com/AgainIoT/Open-Set-Go/blob/main/EnvironmentVariable.md)
 
-Follow the [GitHub Docs](https://docs.github.com/ko/apps/oauth-apps/building-oauth-apps/creating-an-oauth-app) to get Client ID & Client Secret.<br>
-If your Authorization URL should be `localhost:3000` !
+3. Start Open-Set-Go Server's docker with environment variable!
 
-**<li> Create `.env` file at root to use secret environment**
+**Install Manually**
 
-```bash
-touch .env
-```
+1. Clone our Repository!
 
-**<li> Fill in the `.env` file as follows**
+   ```bash
+   git clone https://github.com/AgainIoT/Open-Set-Go_server.git
+   ```
 
-```bash
-MONGODB_URI="<Your-MongoDB-URI-start-with-mongodb://>"
-CLIENT_ID="<Your-GitHub-OAuth-Client_ID>"
-CLIENT_SECRET="<Your-GitHub-OAuth-Client_Secret>"
-JWT_SECRET="<Any-JWT-Secret-You-Want>"
-JWT_EXPIRATION_TIME="<JWT-Expiration-Time-You-Want-default-18000>"
-```
+2. Install the Development Environment
 
-**<li> Start Open-Set-Go Server**
+3. Install Node Dependencies
+   ```bash
+   yarn install
+   ```
+4. Create `.env` file at root to use secret environment
 
-```bash
-  yarn start
-```
+   > See more details at [EnvironmentVariable.md](https://github.com/AgainIoT/Open-Set-Go/blob/main/EnvironmentVariable.md)
+
+5. Start Open-Set-Go Server
+
+   ```bash
+     # for development
+     yarn start
+     yarn start:dev # Restart by detecting changes in the file!
+
+     # for production
+     yarn build
+     node dist/main.js
+   ```
 
 ### 🙎Client
 
-**<li> Clone our Repository**
+**Install with script**
 
-```bash
-git clone https://github.com/AgainIoT/Open-Set-Go_client.git
+You can also easily install it through [install.sh](https://github.com/AgainIoT/Open-Set-Go#installation--development-environment)!
 
-######################################
-# Open-Set-Go Repository Dependencies
-#
-# Open-Set-Go_client
-#
-######################################
-```
+**Install Manually**
 
-**<li> Install the Development Environment**
+1. Clone our Repository!
 
-**<li> Install Node Dependencies**
+   ```bash
+   git clone https://github.com/AgainIoT/Open-Set-Go_client.git
+   ```
 
-```bash
-  yarn install
-```
+2. Install the Development Environment
 
-**<li> Create your own github-oauth app**
+3. Install Node Dependencies
+   ```bash
+   yarn install
+   ```
+4. Create `.env` file at root to use secret environment
 
-Follow the [GitHub Docs](https://docs.github.com/ko/apps/oauth-apps/building-oauth-apps/creating-an-oauth-app) to get Client ID & Client Secret.<br>
-If your Authorization URL should be `localhost:3000` !
+   > See more details at [EnvironmentVariable.md](https://github.com/AgainIoT/Open-Set-Go/blob/main/EnvironmentVariable.md)
 
-**<li> Create `.env` file at root to use secret environment**
+5. Start Open-Set-Go Server
 
-```bash
-touch .env
-```
+   ```bash
+     # for development
+     yarn start
+     yarn start:linux # start HTTPS for linux
+     yarn start:wins # start HTTPS for windows
 
-**<li> Fill in the `.env` file as follows**
-
-```bash
-REACT_APP_CLIENT_ID="<Your-GitHub-OAuth-Client_ID>"
-REACT_APP_REDIRECT_URL="http://localhost:3000/login"
-REACT_APP_SERVER_URL="http://localhost:8080"
-```
-
-**<li> Start Open-Set-Go Server**
-
-```bash
-yarn start
-```
+     # for production
+     yarn build
+     yarn global add serve
+     serve -s build
+   ```
