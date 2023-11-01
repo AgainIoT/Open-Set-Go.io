@@ -7,13 +7,13 @@ assignees: []
 
 body: 
   - type: markdown
-      attributes:
-        value: >
-          #### 🔔 Notification
+    attributes:
+      value: >
+        #### 🔔 Notification
 
-          Thank you for wanting to make Open-Set-Go better!<br>
-          Your issue will reflected on Open-Set-Go.io's [Showcase](https://docs.open-set-go.com/showcase/).
-          You can see our example on [Open-Set-Go's showcase](https://docs.open-set-go.com/showcase/open-set-go/).
+        Thank you for wanting to make Open-Set-Go better!<br>
+        Your issue will reflected on Open-Set-Go.io's [Showcase](https://docs.open-set-go.com/showcase/).<br>
+        You can see our example on [Open-Set-Go's showcase](https://docs.open-set-go.com/showcase/open-set-go/).
 
   - type: input
     id: project_name
