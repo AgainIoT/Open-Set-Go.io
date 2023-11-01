@@ -5,7 +5,7 @@ title: "🎉 [ShowCase request] - <title>"
 labels: []
 assignees: []
 
-body: 
+body:
   - type: markdown
     attributes:
       value: >
@@ -33,20 +33,20 @@ body:
     validations:
       required: true
 
-    - type: textarea
-      id: screenshot
-      attributes:
-        label: "Project's main picture"
-        description: Add screenshots to explain your project.
-        value: |
-          ![DESCRIPTION](LINK.png)
-      validations:
-        required: true
+  - type: textarea
+    id: screenshot
+    attributes:
+      label: "Project's main picture"
+      description: Add screenshots to explain your project.
+      value: |
+        ![DESCRIPTION](LINK.png)
+    validations:
+      required: true
 
-    - type: textarea
-      id: content
-      attributes:
-        label: "Project Description"
-        description: Please explain your project in Markdown syntax!.
-      validations:
-        required: true
+  - type: textarea
+    id: content
+    attributes:
+      label: "Project Description"
+      description: Please explain your project in Markdown syntax!.
+    validations:
+      required: true
