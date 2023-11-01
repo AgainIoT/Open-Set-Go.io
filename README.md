@@ -1,4 +1,4 @@
-# Open-Set-Go_client
+# Open-Set-Go.io
 
 <p align="center">
 <a href="https://www.open-set-go.com/" target="_blank"><img src="https://github.com/AgainIoT/Open-Set-Go/raw/main/.github/images/Open-Set-Go.png" width="200" alt="Open-Set-Go Logo" /></a>
@@ -24,14 +24,14 @@ This repository only produces Open-Set-Go's Documentation!
 | --------------------- | ------------ | ------------------------------------------- |
 | Ubuntu OS             | Ubuntu 22.04 | Open-Set-Go.io was developed by Ubuntu OS   |
 | Node.js               | >= 18.x      | Open-Set-Go.io was developed by Node.js v18 |
-| npm                   | 10.1.0       | Open-Set-Go client manage package with npm  |
+| npm                   | 10.1.0       | Open-Set-Go.io manage package with npm      |
 
 ### Install Manually
 
 1. Clone our Repository!
 
    ```bash
-   git clone https://github.com/AgainIoT/Open-Set-Go_client.git
+   git clone https://github.com/AgainIoT/Open-Set-Go.io.git
    ```
 
 2. Install Node Dependencies
