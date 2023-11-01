@@ -1,4 +1,8 @@
 contact_links:
-  - name: Question 🙋
+  - name: Documentation Request or Issue
+    url: https://github.com/AgainIoT/Open-Set-Go/issues
+    about: If you're having trouble with the document or have any documents you'd like to add, please tell us at Open-Set-Go Documentaion issues!
+
+  - name: Question
     url: https://github.com/AgainIoT/Open-Set-Go/discussions/categories/q-a
-    about: Ask your question in Open-Set-Go Discussions
+    about: Please ask and answer questions as a discussion thread
