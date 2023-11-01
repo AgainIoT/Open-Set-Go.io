@@ -1,42 +1,52 @@
 ---
 name: "🎉 ShowCase Request"
-description: "Add your Showcase from us! Your issue will reflected on Open-Set-Go.io's Showcase."
+description: "Add your Showcase from us!"
 title: "🎉 [ShowCase request] - <title>"
 labels: []
 assignees: []
 
-- type: input
-  id: project_name
-  attributes:
-    label: "Project Name"
-    description: Please enter your project name
-    placeholder: ex. Open-Set-Go
-  validations:
-    required: true
+body: 
+  - type: markdown
+      attributes:
+        value: >
+          #### 🔔 Notification
 
-- type: input
-  id: owner-repo
-  attributes:
-    label: "Owner/Repository"
-    description: Please enter the owner and repository name of the your showcase!
-    placeholder: owner/repository (ex. AgainIoT/Open-Set-Go)
-  validations:
-    required: true
+          Thank you for wanting to make Open-Set-Go better!<br>
+          Your issue will reflected on Open-Set-Go.io's [Showcase](https://docs.open-set-go.com/showcase/).
+          You can see our example on [Open-Set-Go's showcase](https://docs.open-set-go.com/showcase/open-set-go/).
 
-  - type: textarea
-    id: screenshot
+  - type: input
+    id: project_name
     attributes:
-      label: "Project's main picture"
-      description: Add screenshots to explain your project.
-      value: |
-        ![DESCRIPTION](LINK.png)
+      label: "Project Name"
+      description: Please enter your project name
+      placeholder: ex. Open-Set-Go
     validations:
       required: true
 
-  - type: textarea
-    id: content
+  - type: input
+    id: owner-repo
     attributes:
-      label: "Project Description"
-      description: Please explain your project in Markdown syntax!.
+      label: "Owner/Repository"
+      description: Please enter the owner and repository name of the your showcase!
+      placeholder: owner/repository (ex. AgainIoT/Open-Set-Go)
     validations:
       required: true
+
+    - type: textarea
+      id: screenshot
+      attributes:
+        label: "Project's main picture"
+        description: Add screenshots to explain your project.
+        value: |
+          ![DESCRIPTION](LINK.png)
+      validations:
+        required: true
+
+    - type: textarea
+      id: content
+      attributes:
+        label: "Project Description"
+        description: Please explain your project in Markdown syntax!.
+      validations:
+        required: true
