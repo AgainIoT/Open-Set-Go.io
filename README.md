@@ -1,159 +1,69 @@
-<p align="center">
-  <a href="https://getdoks.org/">
-    <img alt="Doks" src="https://doks.netlify.app/doks.svg" width="60">
-  </a>
-</p>
-
-<h1 align="center">
-  Doks
-</h1>
-
-<h3 align="center">
-  Modern Documentation Theme
-</h3>
+# Open-Set-Go_client
 
 <p align="center">
-  Doks is a Hugo theme for building secure, fast, and SEO-ready documentation websites, which you can easily update and customize.
+<a href="https://www.open-set-go.com/" target="_blank"><img src="https://github.com/AgainIoT/Open-Set-Go/raw/main/.github/images/Open-Set-Go.png" width="200" alt="Open-Set-Go Logo" /></a>
 </p>
 
 <p align="center">
-  <a href="https://github.com/h-enk/doks/blob/master/LICENSE">
-    <img src="https://img.shields.io/github/license/h-enk/doks?style=flat-square" alt="GitHub">
-  </a>
-  <a href="https://github.com/h-enk/doks/releases">
-    <img src="https://img.shields.io/github/v/release/h-enk/doks?include_prereleases&style=flat-square"alt="GitHub release (latest SemVer including pre-releases)">
-  </a>
-  <a href="https://www.npmjs.com/package/@hyas/doks">
-    <img src="https://img.shields.io/npm/v/@hyas/doks?style=flat-square" alt="npm (scoped)">
-  </a>
-  <a href="https://github.com/h-enk/doks/actions?query=workflow%3A%22Hyas+CI%22">
-    <img src="https://img.shields.io/github/workflow/status/h-enk/doks/Hyas%20CI/master?style=flat-square" alt="GitHub Workflow Status (branch)">
-  </a>
-  <a href="https://app.netlify.com/sites/doks/deploys">
-    <img src="https://img.shields.io/netlify/8a1009d5-88ac-413e-96ef-3f928674a083?style=flat-square" alt="Netlify">
-  </a>
+  This is <a href="https://www.open-set-go.com" target="_blank">Open-Set-Go</a>'s Documentation Repository! More details at <a href="https://github.com/AgainIoT/Open-Set-Go">Open-Set-Go Repository</a>!<br>
+  See Open-Set-Go's Documentation <a href="https://docs.open-set-go.com">here</a>
 </p>
 
-![Doks — Modern Documentation Theme](https://raw.githubusercontent.com/h-enk/doks/master/images/doks.png)
+## Description
 
-## Demo
+**Open-Set-Go.io** repository is documentation of Open-Set-Go's **Hugo** Server!<br>
+You can see more information of our topic on [**Open-Set-Go**](https://github.com/AgainIoT/Open-Set-Go) Repository.
 
-- [doks.netlify.app](https://doks.netlify.app/)
+This repository only produces Open-Set-Go's Documentation!
 
-## Why Doks?
+> If you want to discuss the topic, please use [Discussions from **Open-Set-Go**](https://github.com/AgainIoT/Open-Set-Go/discussions)!
 
-Nine main reasons why you should use Doks:
+## Installation & Development Environment
 
-1. __Security aware__. Get A+ scores on [Mozilla Observatory](https://observatory.mozilla.org/analyze/doks.netlify.app) out of the box. Easily change the default Security Headers to suit your needs.
+| Supported Environment | Version      | Description                                 |
+| --------------------- | ------------ | ------------------------------------------- |
+| Ubuntu OS             | Ubuntu 22.04 | Open-Set-Go.io was developed by Ubuntu OS   |
+| Node.js               | >= 18.x      | Open-Set-Go.io was developed by Node.js v18 |
+| npm                   | 10.1.0       | Open-Set-Go client manage package with npm  |
 
-2. __Fast by default__. Get 100 scores on [Google Lighthouse](https://googlechrome.github.io/lighthouse/viewer/?gist=59aafe464a68f8bc30b8e9a636d5b053) by default. Doks removes unused css, prefetches links, and lazy loads images.
+### Install Manually
 
-3. __SEO-ready__. Use sensible defaults for structured data, open graph, and Twitter cards. Or easily change the SEO settings to your liking.
+1. Clone our Repository!
 
-4. __Development tools__. Code with confidence. Check styles, scripts, and markdown for errors and fix automatically or manually.
+   ```bash
+   git clone https://github.com/AgainIoT/Open-Set-Go_client.git
+   ```
 
-5. __Bootstrap framework__. Build robust, flexible, and intuitive websites with Bootstrap 5. Easily customize your Doks site with the source Sass files.
+2. Install Node Dependencies
+   ```bash
+   npm install
+   ```
+3. Start Open-Set-Go Server
 
-6. __Netlify-ready__. Deploy to Netlify with sensible defaults. Easily use Netlify Functions, Netlify Redirects, and Netlify Headers.
+   ```bash
+   npm start
+   ```
 
-7. __Full text search__. Search your Doks site with FlexSearch. Easily customize index settings and search options to your liking.
+## Contributing
 
-8. __Page layouts__. Build pages with a landing page, blog, or documentation layout. Add custom sections and components to suit your needs.
+Open-Set-Go.io is currently managed only by maintainers and is not ready for contribution yet!<br>
+Please submit your comments to [Open-Set-Go's Documentation Issue](https://github.com/AgainIoT/Open-Set-Go/issues)!
 
-9. __Dark mode__. Switch to a low-light UI with the click of a button. Change colors with variables to match your branding.
+- Currently, we are only receiving reports regarding the [Showcase](https://docs.open-set-go.com/showcase/) through the [Issue Template](https://github.com/AgainIoT/Open-Set-Go.io/issues). Thank you for your interest!
 
-### Other features
+## Contributors
 
-- __Multilingual and i18n__ support
-- __Versioning__ documentation support
-- __KaTeX__ math typesetting
-- __Mermaid__ diagrams and visualization
-- __highlight.js__ syntax highlighting
+Thank you to everyone who contributed to our project.
 
-## Requirements
+<a href="https://github.com/AgainIoT/Open-Set-Go.io/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=AgainIoT/Open-Set-Go.io"/>
+</a>
 
-- [Git](https://git-scm.com/) — latest source release
-- [Node.js](https://nodejs.org/) — latest LTS version or newer
+_<div align=right>Made with <a href="https://contrib.rocks">contrib.rocks</a></div>_
 
-<details>
-<summary>Why Node.js?</summary>
+## License
 
-Doks uses npm (included with Node.js) to centralize dependency management, making it [easy to update](https://getdoks.org/docs/help/how-to-update/) resources, build tooling, plugins, and build scripts.
+**Open-Set-Go.io** is released under [h-enk/doks](https://github.com/h-enk/doks) Hugo template & MIT License</a>.<br>
+See the <a href="./LICENSE">LICENSE file</a> for details.<br>
 
-</details>
-
-## Get started
-
-Start a new Doks project in three steps:
-
-### 1. Create a new site
-
-Doks is available as a child theme and a starter theme.
-
-#### Child theme
-
-- Intended for novice to intermediate users
-- Intended for minor customizations
-- [Easily update npm packages](https://getdoks.org/docs/help/how-to-update/) — __including__ [Doks](https://www.npmjs.com/package/@hyas/doks)
-
-```bash
-git clone https://github.com/h-enk/doks-child-theme.git my-doks-site && cd my-doks-site
-```
-
-#### Starter theme
-
-- Intended for intermediate to advanced users
-- Intended for major customizations
-- [Easily update npm packages](https://getdoks.org/docs/help/how-to-update/)
-
-```bash
-git clone https://github.com/h-enk/doks.git my-doks-site && cd my-doks-site
-```
-
-<details>
-<summary>Help me choose</summary>
-
-Not sure which one is for you? Pick the child theme.
-
-</details>
-
-### 2. Install dependencies
-
-```bash
-npm install
-```
-
-### 3. Start development server
-
-```bash
-npm run start
-```
-
-## Other commands
-
-Doks comes with [commands](https://getdoks.org/docs/prologue/commands/) for common tasks.
-
-## Documentation
-
-- [Netlify](https://docs.netlify.com/)
-- [Hugo](https://gohugo.io/documentation/)
-- [Doks](https://getdoks.org/)
-
-## Communities
-
-- [Netlify Community](https://community.netlify.com/)
-- [Hugo Forums](https://discourse.gohugo.io/)
-- [Doks Discussions](https://github.com/AgainIoT/Open-Set-Go/discussions)
-
-## Sponsors
-
-Support this project by becoming a sponsor. Your logo will show up here with a link to your website.
-
-[![OC sponsor 0](https://opencollective.com/doks/tiers/sponsor/0/avatar.svg)](https://opencollective.com/doks/tiers/sponsor/0/website)
-[![OC sponsor 1](https://opencollective.com/doks/tiers/sponsor/1/avatar.svg)](https://opencollective.com/doks/tiers/sponsor/1/website)
-
-## Backers
-
-Support this project by becoming a backer. Your avatar will show up here.
-
-[![Backers](https://opencollective.com/doks/tiers/backer.svg?49741992)](https://opencollective.com/doks)
+<a href="https://app.fossa.com/projects/git%2Bgithub.com%2FAgainIoT%2FOpen-Set-Go.io?utm_source=share_link"><img src="https://app.fossa.com/api/projects/git%2Bgithub.com%2FAgainIoT%2FOpen-Set-Go.io.svg?type=large"></a>
