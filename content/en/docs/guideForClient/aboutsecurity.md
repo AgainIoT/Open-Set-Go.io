@@ -16,19 +16,19 @@ _Security checks whether Security Policy, Dependabot, CodeQL, Secret Scanning is
 ### Security Policy
 **What is Security Policy?**
 
-View how to securely report security vulnerabilities for this repository.
+You can add a security policy to the repository to provide guidance on how to report security vulnerabilities in your project.
 
 ### Dependabot
 **What is Dependabot?**
 
-Get notified when one of your dependencies has a vulnerability.
+Dependabot creates Dependabot alerts when a known vulnerability is detected in the dependencies used by the project.
 
 ### CodeQL
 **What is CodeQL?**
 
-Automatically detect common vulnerability and coding errors.
+CodeQL can be used to identify vulnerabilities and errors in code. The result is displayed as code scanning warning in GitHub.
 
 ### Secret Scanning
 **What is Secret Scanning?**
 
-Get notified when a secret is pushed to this repository.
+GitHub checks the repository for known types of secrets to prevent inadvertently committed secrets from being used for fraud.
