@@ -55,9 +55,9 @@ When you proceed with yourself or membership/login, choose a repository that has
 **2. Project Operational Assessment**
 Divided into templates, communities, and security, the parts that have not been evaluated are marked in red circles.
 
-- Template checks the presence or absence of Pull-Request Template, Issue Template, README.md, Contributing.md.
-- Community checks whether Description, Code of Conduct, Discussion, and License are enabled.
-- Security checks whether Security Policy, Dependabot, CodeQL, Secret Scanning is enabled.
+- Template checks the presence or absence of Pull-Request Template, Issue Template, README.md, Contributing.md. [More about Template](https://docs.open-set-go.com/docs/guideForClient/abouttemplate/)
+- Community checks whether Description, Code of Conduct, Discussion, and License are enabled. [More about Community](https://docs.open-set-go.com/docs/guideForClient/aboutcommunity/)
+- Security checks whether Security Policy, Dependabot, CodeQL, Secret Scanning is enabled. [More about Security](https://docs.open-set-go.com/docs/guideForClient/aboutsecurity/)
 
 **3. Project Operational Assessment**
 
