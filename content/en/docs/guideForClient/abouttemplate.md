@@ -35,7 +35,6 @@ Issue templates are summarized and recorded for use in tracking issues or issues
 
 Provide appropriate Issue Templates for different situations. You can write the name and description of the issue template to suit you, and you can also set the title if you want. In addition, you can add as many issue templates as you want.
 - Use the template as it is.
-- Use the markdown editor to modify and use the template to suit you.
 - Create new ones to suit your needs with the markdown editor.
 
 ### README.md
@@ -44,6 +43,7 @@ Provide appropriate Issue Templates for different situations. You can write the 
 README.md is the first document to be viewed in the repository and describes the project. You have information about other files contained in a directory or compressed file.
 
 **What Open-Set-Go has to offer?**
+
 Various README.md currently used by real open-source projects sorted by star. Templates can be provided separately by type, such as title and description, so that users can use them in combination as they want.
 - Use the template as it is.
 - Use the markdown editor to modify and use the template to suit you.
@@ -57,6 +57,7 @@ Various README.md currently used by real open-source projects sorted by star. Te
 CONTRIBUTING.md is a document that specifies information for contributors. This file can contain various information such as build requirements, development environment setting methods, and code writing guides
 
 **What Open-Set-Go has to offer?**
+
 Various Contributing.md currently used by real open-source projects sorted by star. Templates can be provided separately by type, such as title and description, so that users can use them in combination as they want.
 - Use the template as it is.
 - Use the markdown editor to modify and use the template to suit you.
