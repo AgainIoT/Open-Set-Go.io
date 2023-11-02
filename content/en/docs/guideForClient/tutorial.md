@@ -32,7 +32,7 @@ Sorting and providing various pull-request templates in githubstar order, select
 
 **4. Issue Template Settings**
 
-Issue templates are provided by type, and users can select, modify, and create the same as pull-request templates. Each Issue template can be set as title and description, and can be added as needed.
+Issue templates are provided by type, and users can select, and create the same as pull-request templates. Each Issue template can be set as title and description, and can be added as needed.
 
 **5. CONTRIBUTING.md Settings**
 
