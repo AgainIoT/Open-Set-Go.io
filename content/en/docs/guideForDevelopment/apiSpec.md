@@ -1,6 +1,6 @@
 ---
 title: "API Spec"
-description: "Show our Open-Set-Go Server's API specifications"
+description: "Show our Open-Set-Go Server's API specifications."
 lead: "Show our Open-Set-Go Server's API specifications."
 date: 2020-10-13T15:21:01+02:00
 lastmod: 2020-10-13T15:21:01+02:00
@@ -8,8 +8,8 @@ draft: false
 images: []
 menu:
   docs:
-    parent: "prologue"
-weight: 130
+    parent: "guideForDevelopment"
+weight: 150
 toc: true
 ---
 

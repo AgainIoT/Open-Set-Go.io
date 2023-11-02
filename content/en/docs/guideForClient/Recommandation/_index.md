@@ -1,12 +1,13 @@
 ---
-title: "License"
-description: "License"
+title: "Recommandation"
+description: ""
 lead: ""
 date: 2020-10-06T08:49:15+00:00
 lastmod: 2020-10-06T08:49:15+00:00
 draft: false
+menu:
+  docs:
+    parent: "guideForClient"
 images: []
-weight: 500
+weight: 350
 ---
-
-

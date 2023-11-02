@@ -9,7 +9,7 @@ images: []
 menu:
   docs:
     parent: "help"
-weight: 630
+weight: 160
 toc: true
 ---
 {{< details "Q. How do you contribute to the Open-Set-Go project?" >}}
