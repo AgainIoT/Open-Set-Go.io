@@ -12,8 +12,47 @@ menu:
 weight: 120
 toc: true
 ---
+### 🙎 Client
 
-### 🖥️Server
+1.**Install with script**
+
+You can also easily install it through [install.sh](https://github.com/AgainIoT/Open-Set-Go#installation--development-environment)!
+
+2.**Install Manually**
+
+- Clone our Repository!
+
+   ```bash
+   git clone https://github.com/AgainIoT/Open-Set-Go_client.git
+   ```
+
+- Install the Development Environment
+
+- Install Node Dependencies
+
+   ```bash
+   yarn install
+   ```
+
+- Create `.env` file at root to use secret environment
+
+   > See more details at [EnvironmentVariable.md](https://github.com/AgainIoT/Open-Set-Go/blob/main/EnvironmentVariable.md)
+
+- Start Open-Set-Go Server
+
+   ```bash
+     # for development
+     yarn start
+     yarn start:linux # start HTTPS for linux
+     yarn start:wins # start HTTPS for windows
+
+     # for production
+     yarn build
+     yarn global add serve
+     serve -s build
+   ```
+   
+### 🖥️ Server
 
 1.**Install with script**
 
@@ -63,44 +102,4 @@ You can also easily install it through [install.sh](https://github.com/AgainIoT/
      # for production
      yarn build
      node dist/main.js
-   ```
-
-### 🙎Client
-
-1.**Install with script**
-
-You can also easily install it through [install.sh](https://github.com/AgainIoT/Open-Set-Go#installation--development-environment)!
-
-2.**Install Manually**
-
-- Clone our Repository!
-
-   ```bash
-   git clone https://github.com/AgainIoT/Open-Set-Go_client.git
-   ```
-
-- Install the Development Environment
-
-- Install Node Dependencies
-
-   ```bash
-   yarn install
-   ```
-
-- Create `.env` file at root to use secret environment
-
-   > See more details at [EnvironmentVariable.md](https://github.com/AgainIoT/Open-Set-Go/blob/main/EnvironmentVariable.md)
-
-- Start Open-Set-Go Server
-
-   ```bash
-     # for development
-     yarn start
-     yarn start:linux # start HTTPS for linux
-     yarn start:wins # start HTTPS for windows
-
-     # for production
-     yarn build
-     yarn global add serve
-     serve -s build
    ```
