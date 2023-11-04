@@ -93,13 +93,10 @@ RECOIL_DUPLICATE_ATOM_KEY_CHECKING_ENABLED=false # env for recoil
 
 > `REACT_APP_CLIENT_ID`<br>
 > Details at [ClientID & ClientSecret](#clientid--clientsecret)
-
 > `REACT_APP_REDIRECT_URL`<br>
 > Details at [ClientID & ClientSecret](#clientid--clientsecret)
-
 > `REACT_APP_SERVER_URL`<br>
 > Use your server IP, default is `http://localhost:8080`!
-
 > `RECOIL_DUPLICATE_ATOM_KEY_CHECKING_ENABLED`<br>
 > Related to recoil!
 
@@ -118,24 +115,17 @@ ORIGIN=http://localhost:3000
 
 > `MONGODB_URI`<br>
 > Details at [MongodbURI](#mongodburi)
-
 > `CLIENT_ID`<br>
 > Details at [ClientID & ClientSecret](#clientid--clientsecret)
-
 > `CLIENT_SECRET`<br>
 > Details at [ClientID & ClientSecret](#clientid--clientsecret)
-
 > `JWT_SECRET`<br>
 > Details at [jwtSecret & jwtExpirationTime](#jwttoken--jwtexpirationtime)
-
 > `JWT_EXPIRATION_TIME`<br>
 > Details at [jwtSecret & jwtExpirationTime](#jwttoken--jwtexpirationtime)
-
 > `MAIL_USER`<br>
 > Details at [mailUser & mailPass](#mailuser--mailpass)
-
 > `MAIL_PASS`<br>
 > Details at [mailUser & mailPass](#mailuser--mailpass)
-
 > `ORIGIN`<br>
 > ORIGIN is an environmental variable to prevent CORS policy problems. You can create the IP of the client to use the server. Default is `http://localhost:3000`.
