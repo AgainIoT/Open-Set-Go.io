@@ -12,6 +12,7 @@ menu:
 weight: 160
 toc: true
 ---
+
 ### For starting new Open-Source Project
 
 It is not just to create a Source-Open Project, but to create a contribution-friendly environment and create an environment where communication between developers and contributors is smooth to create sustainable open source projects.

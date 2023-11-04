@@ -12,13 +12,13 @@ menu:
 weight: 100
 toc: true
 ---
+
 ### 🚩 Prologue
 
 ---
 
 This page contains a one-line introduction to Open-Set-Go, a description, and the features it provides. It consists of Introduction, What is Open-Set-Go?, Why Open-Set-Go?. [Prologue →](https://docs.open-set-go.com/docs/prologue/whatIsOpenSetGo/)
 <br></br>
-
 
 ### 🤝 Guide For Development
 
@@ -31,7 +31,7 @@ This page is intended for developers who want to contribute to the development o
 
 ---
 
-This page is for those who want to use Open-Set-Go to create new open-source projects or review operations for existing projects. It consists of  Tutorial, Template, Security, Security, and Recommandation. [Guide For Client →](https://docs.open-set-go.com/docs/guideForClient/tutorial/)
+This page is for those who want to use Open-Set-Go to create new open-source projects or review operations for existing projects. It consists of Tutorial, Template, Security, Security, and Recommandation. [Guide For Client →](https://docs.open-set-go.com/docs/guideForClient/tutorial/)
 <br></br>
 
 ### 🔎 Template Guides
