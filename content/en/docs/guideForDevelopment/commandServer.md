@@ -45,7 +45,7 @@ Check scripts, styles, and markdown for errors:
 yarn lint
 ```
 
-### Deploy
+## Deploy
 
 Deploy project:
 
@@ -53,7 +53,7 @@ Deploy project:
 yarn deploy
 ```
 
-### CI
+## CI
 
 Code Style Verification (code commitment only when passing CI):
 
