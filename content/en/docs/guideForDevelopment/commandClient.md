@@ -12,6 +12,7 @@ menu:
 weight: 190
 toc: true
 ---
+
 {{< alert icon="💡" text="You can check the command in the Script section of '/package.json'." />}}
 
 ## Start
@@ -53,7 +54,6 @@ Serve your build directory:
 ```bash
 serve -s build
 ```
-
 
 ## CI
 
