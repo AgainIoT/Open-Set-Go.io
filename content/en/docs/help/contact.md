@@ -22,4 +22,3 @@ If you have something to ask or would like to ask the AgainIoT team for help, yo
 - 📧 [Mail](mailto:yunminwo1211@gmail.com)
 
 - 💬 [Slack](https://join.slack.com/t/open-set-go/shared_invite/zt-25xkwvzrp-mBcETQ811LK_BOEoiB8YPQ)
-
