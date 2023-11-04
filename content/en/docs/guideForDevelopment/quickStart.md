@@ -15,43 +15,45 @@ toc: true
 
 ### 🖥️Server
 
-**Install with script**
+1.**Install with script**
 
 You can also easily install it through [install.sh](https://github.com/AgainIoT/Open-Set-Go#installation--development-environment)!
 
-**Install with docker**
+2.**Install with docker**
 
-1. Pull our docker image!
+- Pull our docker image!
 
-   ```
+   ```bash
     docker pull ymw0407/open-set-go_server
    ```
 
-2. Create `.env` file at root to use secret environment
+- Create `.env` file at root to use secret environment
 
    > See more details at [EnvironmentVariable.md](https://github.com/AgainIoT/Open-Set-Go/blob/main/EnvironmentVariable.md)
 
-3. Start Open-Set-Go Server's docker with environment variable!
+- Start Open-Set-Go Server's docker with environment variable!
 
-**Install Manually**
+2.**Install Manually**
 
-1. Clone our Repository!
+- Clone our Repository!
 
    ```bash
    git clone https://github.com/AgainIoT/Open-Set-Go_server.git
    ```
 
-2. Install the Development Environment
+- Install the Development Environment
 
-3. Install Node Dependencies
+- Install Node Dependencies
+
    ```bash
    yarn install
    ```
-4. Create `.env` file at root to use secret environment
+
+- Create `.env` file at root to use secret environment
 
    > See more details at [EnvironmentVariable.md](https://github.com/AgainIoT/Open-Set-Go/blob/main/EnvironmentVariable.md)
 
-5. Start Open-Set-Go Server
+- Start Open-Set-Go Server
 
    ```bash
      # for development
@@ -65,29 +67,31 @@ You can also easily install it through [install.sh](https://github.com/AgainIoT/
 
 ### 🙎Client
 
-**Install with script**
+1.**Install with script**
 
 You can also easily install it through [install.sh](https://github.com/AgainIoT/Open-Set-Go#installation--development-environment)!
 
-**Install Manually**
+2.**Install Manually**
 
-1. Clone our Repository!
+- Clone our Repository!
 
    ```bash
    git clone https://github.com/AgainIoT/Open-Set-Go_client.git
    ```
 
-2. Install the Development Environment
+- Install the Development Environment
 
-3. Install Node Dependencies
+- Install Node Dependencies
+
    ```bash
    yarn install
    ```
-4. Create `.env` file at root to use secret environment
+
+- Create `.env` file at root to use secret environment
 
    > See more details at [EnvironmentVariable.md](https://github.com/AgainIoT/Open-Set-Go/blob/main/EnvironmentVariable.md)
 
-5. Start Open-Set-Go Server
+- Start Open-Set-Go Server
 
    ```bash
      # for development
