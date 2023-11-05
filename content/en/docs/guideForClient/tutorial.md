@@ -59,13 +59,13 @@ When you proceed with yourself or membership/login, choose a repository that has
 
 Divided into templates, communities, and security, the parts that have not been evaluated are marked in red circles.
 
-- Template checks the presence or absence of Pull-Request Template, Issue Template, README.md, Contributing.md. [More about Template](https://docs.open-set-go.com/docs/guideForClient/abouttemplate/)
+- Template checks the presence or absence of Pull-Request Template, Issue Template, README.md, CONTRIBUTING.md. [More about Template](https://docs.open-set-go.com/docs/guideForClient/abouttemplate/)
 - Community checks whether Description, Code of Conduct, Discussion, and License are enabled. [More about Community](https://docs.open-set-go.com/docs/guideForClient/aboutcommunity/)
 - Security checks whether Security Policy, Dependabot, CodeQL, Secret Scanning is enabled. [More about Security](https://docs.open-set-go.com/docs/guideForClient/aboutsecurity/)
 
 3.**Project Operational Assessment**
 
-If you want to fill the gaps in the template part, you can select, modify, and create templates as in the start function by clicking on each Pull-Request Template, Issue Template, README.md , and Contributing.md.
+If you want to fill the gaps in the template part, you can select, modify, and create templates as in the start function by clicking on each Pull-Request Template, Issue Template, README.md , and CONTRIBUTING.md.
 
 4.**Create Pull Request**
 
