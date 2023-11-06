@@ -13,7 +13,7 @@ weight: 140
 toc: true
 ---
 
-# OSS Notice | Open-Set-Go_client
+## OSS Notice | Open-Set-Go_client
 
 This application is Copyright © (owner name). All rights reserved.
 

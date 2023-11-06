@@ -13,7 +13,7 @@ weight: 160
 toc: true
 ---
 
-# OSS Notice | Open-Set-Go_server
+## OSS Notice | Open-Set-Go_server
 
 This application is Copyright © (owner name). All rights reserved.
 
