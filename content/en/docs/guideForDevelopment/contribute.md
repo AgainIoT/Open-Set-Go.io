@@ -12,9 +12,10 @@ menu:
 weight: 160
 toc: true
 ---
+
 _You can also check this out on Contributing.md on our GitHub. [Shortcut of Contributing.md](https://github.com/AgainIoT/Open-Set-Go/blob/main/CONTRIBUTING.md)_
 
-# Welcome to Open-Set-Go contributing guide
+### Welcome to Open-Set-Go contributing guide
 
 Thank you for investing your time in contributing to our Open-Set-Go project! Any contribution you make will be reflected on [Open-Set-Go.io](https://open-set-go.netlify.app/) & [README.md](https://github.com/AgainIoT/Open-Set-Go#contributors) ✨.
 
@@ -136,7 +137,7 @@ We are developing using GitLab-flow. See [GitLab-flow](https://about.gitlab.com/
 | Test     | Test code                                                                             |
 | Chore    | Other minor modifications                                                             |
 
-```
+```bash
 git config --local commit.template .gitmessage.txt
 ```
 
@@ -152,12 +153,11 @@ _You can apply .gitmessage.txt in the same way as above!_
 
 #### Samples
 
-```
+```bash
 Feat : New feature added! #24
 
 - something added 1
 - another else added 2
 ```
-
 
 _<center>※ Anyone who wants to be a collaborator of Open-Set-Go is always welcome!</center>_

@@ -1,42 +1,43 @@
----
-title: "API Spec"
-description: "Show our Open-Set-Go Server's API specifications."
-lead: "Show our Open-Set-Go Server's API specifications."
-date: 2020-10-13T15:21:01+02:00
-lastmod: 2020-10-13T15:21:01+02:00
-draft: false
-images: []
-menu:
-  docs:
-    parent: "guideForDevelopment"
-weight: 150
-toc: true
----
+# Index
 
-| Method | Request Path                         | Request Body                                    | Response Body                        | Description                                 |
-| ------ | ------------------------------------ | ----------------------------------------------- | ------------------------------------ | ------------------------------------------- |
-| POST   | /auth/github-login?code=\<authCode\> |                                                 |                                      | GitHub OAuth Login                          |
-| POST   | /auth/github-logout                  | only need cookies                               |                                      | Remove Cookies                              |
-| GET    | /user/profile                        | only need cookies                               | [Response Body](#userprofile)        | User Info for user profile                  |
-| GET    | /user/grantedInfo                    | only need cookies                               | [Response Body](#usergrantedinfo)    | userInfo with org                           |
-| POST   | /repo                                | cookies + [Request Body](#repocheckduplication) | Status will send(NOT FOUND or OK)    | userInfo with org                           |
-| POST   | /repo/checkDuplication               | cookies + [Request Body](#repo)                 | true/false(Boolean)                  | check repository is duplicate               |
-| POST   | /mail                                | only need cookies                               | Status will send(NOT FOUND or OK)    | send mail to user(after respository create) |
-| POST   | /file                                | cookies + [Request Body](#file)                 | Status will send(NOT FOUND or OK)    | upload file to repository                   |
-| GET    | /file/supportedEnv                   |                                                 | [Response Body](#filesupportedenv)   | give supportedEnv                           |
-| GET    | /file/license                        |                                                 | [Response Body](#filelicense)        | get license information                     |
-| GET    | /file/pr                             |                                                 | [Response Body](#filepr)             | get prs information                         |
-| GET    | /file/pr/\<id>                       |                                                 | [Response Body](#fileprid)           | get pr information only id                  |
-| GET    | /file/contributing                   |                                                 | [Response Body](#filecontributing)   | get contributings information               |
-| GET    | /file/contributing/\<id>             |                                                 | [Response Body](#filecontributingid) | get contributings information only id       |
-| GET    | /file/readme                         |                                                 | [Response Body](#filereadme)         | get readmes information                     |
-| GET    | /file/readme/\<id>                   |                                                 | [Response Body](#filereadmeid)       | get readmes information only id             |
+- [auth module](#auth-module)
+- [user module](#user-module)
+- [repo module](#repo-module)
+- [mail module](#mail-module)
+- [file module](#file-module)
+  - [file/license module](#filelicense-module)
+  - [file/pr module](#filepr-module)
+  - [file/issue module](#fileissue-module)
+  - [file/contributing module](#filecontributing-module)
+  - [file/readme module](#filereadme-module)
+- [review module](#review-module)
+  - [review/file module](#reviewfile-module)
+
+## Auth Module
+
+| Method | Request Path                             | Request Body      | Response Body | Description        |
+| ------ | ---------------------------------------- | ----------------- | ------------- | ------------------ |
+| POST   | /auth/github-login?code=\<**authCode**\> |                   |               | GitHub OAuth Login |
+| POST   | /auth/github-logout                      | only need cookies |               | Remove Cookies     |
+
+> 🗒️ note: <br>
+> Auth Module is based on GitHub OAuth Apps!<br>
+> You can get your testing **authCode** at our [GitHub OAuth Apps](https://github.com/login/oauth/authorize?client_id=39ae041e1cd34ce4723e&redirect_uri=https://localhost:3000/login&scope=repo,write:org,read:user,user:email)<br>
+> Request of `/auth/github-login?code` give you cookies that can access every request that need cookies
+
+## User Module
+
+| Method | Request Path      | Request Body      | Response Body                     | Description                |
+| ------ | ----------------- | ----------------- | --------------------------------- | -------------------------- |
+| GET    | /user/profile     | only need cookies | [Response Body](#userprofile)     | User Info for user profile |
+| GET    | /user/grantedInfo | only need cookies | [Response Body](#usergrantedinfo) | userInfo with org          |
 
 ### /user/profile
 
 #### Response Body
 
 ```json
+// case 1 [200]
 {
   "id": "ymw0407",
   "name": "Yun Min Woo",
@@ -49,6 +50,7 @@ toc: true
 #### Response Body
 
 ```json
+// case 1 [200]
 {
   "id": "ymw0407",
   "avatar": "https://avatars.githubusercontent.com/u/77202633?v=4",
@@ -69,16 +71,41 @@ toc: true
 }
 ```
 
+## Repo Module
+
+| Method | Request Path           | Request Body                                    | Response Body                          | Description                                   |
+| ------ | ---------------------- | ----------------------------------------------- | -------------------------------------- | --------------------------------------------- |
+| POST   | /repo                  | cookies + [Request Body](#repo)                 | [Response Body](#repo)                 | creating repository with description          |
+| POST   | /repo/checkDuplication | cookies + [Request Body](#repocheckduplication) | [Response Body](#repocheckduplication) | check repository is duplicate                 |
+| GET    | /repo/getPulbicRepo    | only need cookies                               | [Response Body](#repogetpublicrepo)    | get public repository that granted            |
+| POST   | /repo/getRepoDetails   | cookies + [Request Body](#repogetrepodetails)   | [Response Body](#repogetrepodetails)   | get detail information of specific repository |
+
 ### /repo
 
 #### Request Body
 
 ```json
+// case 1: Normal Case -> creating repository successfully [200]
 {
   "owner": "AgainIoT",
-  "repoName": "test2",
-  "description": "test22"
+  "repoName": "Open-Set-Go_test",
+  "description": "This is the test of creating repository with `/repo` POST Method"
 }
+// case 2: Worse Case -> already existing repository [404]
+{
+  "owner": "AgainIoT",
+  "repoName": "Open-Set-Go_server",
+  "description": "This is the test of creating repository with `/repo` POST Method"
+}
+```
+
+#### Response Body
+
+```json
+// case 1: Normal Case -> creating repository successfully [200]
+OK
+// case 2: Worse Case -> already existing repository [404]
+Not Found
 ```
 
 ### /repo/checkDuplication
@@ -86,36 +113,185 @@ toc: true
 #### Request Body
 
 ```json
+// case 1: creatable repository [201]
 {
   "owner": "AgainIoT",
-  "repoName": "Open-Set-Go"
+  "repoName": "Open-Set-Go_test"
+}
+// case 2: already existing repository [201]
+{
+  "owner": "AgainIoT",
+  "repoName": "Open-Set-Go_server"
 }
 ```
+
+#### Response Body
+
+```json
+// case 1: creatable repository [201]
+true
+// case 2: already existing repository [201]
+false
+```
+
+### /repo/getPulbicRepo
+
+#### Response Body
+
+```json
+// case 1 [200]
+[
+  {
+    "owner": "ymw0407",
+    "avatar": "https://avatars.githubusercontent.com/u/77202633?v=4",
+    "repoName": [
+      "0592006-03",
+      "2022ESWContest_webOS_3013",
+      "22_summer_bootcamp",
+      "adsfa",
+      "Algorithm",
+      "Backend-study",
+      "C-Snake-main",
+      "Everyones-Transfer_Main",
+      "GitBookPyQt",
+      "GitHub-Action-Study",
+      "GitHub-RestAPI",
+      "Go-gRPC-Study",
+      "grpc_client",
+      "KOSS-BootCamp-PyQt",
+      "mqtt-sensor-dummydata",
+      "OOP-Study-with-Java",
+      "Open-Set-Go",
+      "Open-Set-Go_server",
+      "productive-box",
+      "SoftwareProject2",
+      "terraform-provider-ncloud",
+      "testasdfasdf",
+      "WAMP_Study",
+      "ymw0407",
+      "ymw0407.github.io",
+      "YongMoon-Voluntary"
+    ]
+  },
+  {
+    "owner": "AgainIoT",
+    "avatar": "https://avatars.githubusercontent.com/u/128156954?v=4",
+    "repoName": [
+      ".github",
+      "Open-Set-Go",
+      "Open-Set-Go.io",
+      "Open-Set-Go_client",
+      "Open-Set-Go_server"
+    ]
+  }
+]
+```
+
+### /repo/getRepoDetails
+
+#### Request Body
+
+```json
+// case 1 [201]
+{
+  "owner": "AgainIoT",
+  "repoName": "Open-Set-Go_server"
+}
+
+// case 2 [201]
+{
+  "owner": "ymw0407",
+  "repoName": "ymw0407"
+}
+```
+
+#### Response Body
+
+```json
+// case 1 [201]
+{
+  "owner": "AgainIoT",
+  "name": "Open-Set-Go_server",
+  "fullName": "AgainIoT/Open-Set-Go_server",
+  "repoURL": "https://github.com/AgainIoT/Open-Set-Go_server",
+  "description": "'Project Starting Toolkit' for OpenSource SW developers who can easily, quickly and conveniently start an Open Source project.",
+  "language": "TypeScript",
+  "star": 8,
+  "fork": 3
+}
+
+// case 2 [201]
+{
+  "owner": "ymw0407",
+  "name": "ymw0407",
+  "fullName": "ymw0407/ymw0407",
+  "repoURL": "https://github.com/ymw0407/ymw0407",
+  "description": null,
+  "language": null,
+  "star": 0,
+  "fork": 0
+}
+```
+
+## Mail Module
+
+| Method | Request Path | Request Body      | Response Body                     | Description                                 |
+| ------ | ------------ | ----------------- | --------------------------------- | ------------------------------------------- |
+| POST   | /mail        | only need cookies | Status will send(NOT FOUND or OK) | send mail to user(after respository create) |
+
+> 🗒️ note: <br>
+> If the mail didn't come to the set primary mail account on GitHub, please take a look at the spam box!
+
+## File Module
+
+| Method | Request Path       | Request Body                    | Response Body                      | Description               |
+| ------ | ------------------ | ------------------------------- | ---------------------------------- | ------------------------- |
+| POST   | /file              | cookies + [Request Body](#file) | Status will send(NOT FOUND or OK)  | upload file to repository |
+| GET    | /file/supportedEnv |                                 | [Response Body](#filesupportedenv) | give supportedEnv         |
+| GET    | /file/gitignore    |                                 | [Response Body](#filegitignore)    | give gitgignore list      |
 
 ### /file
 
 #### Request Body
 
 ```json
+// case 1 [200]
 {
-  "owner": "AgainIoT",
-  "repoName": "Open-Set-Go",
+  "owner": "ymw0407",
+  "repoName": "testasdfasdf",
   "language": "JavaScript(Node.js)",
   "framework": "Express.js",
   "gitignore": ["VisualStudioCode", "Linux"],
   "PRTemplate": "### markdown",
-  "IssueTemplate": [], // empty array required now
+  "IssueTemplate": [
+    {
+      "type": "Bug_Report",
+      "content": "test"
+    },
+    {
+      "type": "Feature_Request",
+      "content": "test22"
+    }
+  ],
   "contributingMd": "### contributing.md",
   "readmeMd": "### readme.md",
-  "license": "https://www.gnu.org/licenses/gpl-3.0.txt"
+  "license": "mit"
 }
+```
+
+#### Response Body
+
+```json
+// case 1 [200]
+OK
 ```
 
 ### /file/supportedEnv
 
-#### Request Body
+#### Response Body
 
 ```json
+// case 1 [200]
 [
   {
     "language": "JavaScript(Node.js)",
@@ -142,6 +318,40 @@ toc: true
 ]
 ```
 
+### /file/gitignore
+
+#### Response Body
+
+```json
+[
+  {
+    "IDE": [
+      "VisualStudioCode",
+      "Eclipse",
+      "WebStrom+all",
+      "GoLand+all",
+      "Intellij+all",
+      "JetBrains+all"
+    ],
+    "OS": ["Linux", "macOS", "Windows"],
+    "ETC": [
+      "ElasticBeanstalk",
+      "SonarQube",
+      "OrCAD",
+      "Maven",
+      "MATLAB",
+      "JupyterNotebooks"
+    ]
+  }
+]
+```
+
+## File/license Module
+
+| Method | Request Path  | Request Body      | Response Body                 | Description             |
+| ------ | ------------- | ----------------- | ----------------------------- | ----------------------- |
+| GET    | /file/license | only need cookies | [Response Body](#filelicense) | get license information |
+
 ### /file/license
 
 #### Response Body
@@ -149,65 +359,56 @@ toc: true
 ```json
 [
   {
-    "priority": 0,
-    "license": "Apache License 2.0",
-    "description": "A permissive license whose main conditions require preservation of copyright and license notices. Contributors provide an express grant of patent rights. Licensed works, modifications, and larger works may be distributed under different terms and without source code.\n",
-    "conditions": {
-      "permissions": [
-        "Commercial use",
-        "Modification",
-        "Distribution",
-        "Patent use",
-        "Private use"
-      ],
-      "limitations": ["Trademark use", "Liability", "Warranty"],
-      "conditions": ["License and copyright notice", "State changes"]
-    },
-    "url": "https://www.apache.org/licenses/LICENSE-2.0.txt"
+    "license": "apache-2.0",
+    "name": "Apache License 2.0",
+    "description": "A permissive license whose main conditions require preservation of copyright and license notices. Contributors provide an express grant of patent rights. Licensed works, modifications, and larger works may be distributed under different terms and without source code.",
+    "permissions": [
+      "commercial-use",
+      "modifications",
+      "distribution",
+      "patent-use",
+      "private-use"
+    ],
+    "conditions": ["include-copyright", "document-changes"],
+    "limitations": ["trademark-use", "liability", "warranty"],
+    "featured": true
   },
   {
-    "priority": 1,
-    "license": "GNU GENERAL PUBLIC LICENSE v3.0",
-    "description": "Permissions of this strong copyleft license are conditioned on making available complete source code of licensed works and modifications, which include larger works using a licensed work, under the same license. Copyright and license notices must be preserved. Contributors provide an express grant of patent rights.\n",
-    "conditions": {
-      "permissions": [
-        "Commercial use",
-        "Modification",
-        "Distribution",
-        "Patent use",
-        "Private use"
-      ],
-      "limitations": ["Liability", "Warranty"],
-      "conditions": [
-        "License and copyright notice",
-        "State changes",
-        "Disclose source",
-        "Same license"
-      ]
-    },
-    "url": "https://www.gnu.org/licenses/gpl-3.0.txt"
-  },
-  {
-    "priority": 2,
-    "license": "MIT License",
-    "description": "A short and simple permissive license with conditions only requiring preservation of copyright and license notices. Licensed works, modifications, and larger works may be distributed under different terms and without source code.\n",
-    "conditions": {
-      "permissions": [
-        "Commercial use",
-        "Modification",
-        "Distribution",
-        "Patent use",
-        "Private use"
-      ],
-      "limitations": ["Liability", "Warranty"],
-      "conditions": ["License and copyright notice"]
-    },
-    "url": "https://www.mit.edu/~amini/LICENSE.md"
-  }
+    "license": "mit",
+    "name": "MIT License",
+    "description": "A short and simple permissive license with conditions only requiring preservation of copyright and license notices. Licensed works, modifications, and larger works may be distributed under different terms and without source code.",
+    "permissions": [
+      "commercial-use",
+      "modifications",
+      "distribution",
+      "private-use"
+    ],
+    "conditions": ["include-copyright"],
+    "limitations": ["liability", "warranty"],
+    "featured": true
+  } // ... more than 5 licenses
 ]
 ```
 
+## File/pr Module
+
+| Method | Request Path    | Request Body             | Response Body                  | Description                |
+| ------ | --------------- | ------------------------ | ------------------------------ | -------------------------- |
+| GET    | /file/pr        | [Request Query](#filepr) | [Response Body](#filepr)       | get prs information        |
+| GET    | /file/pr/\<id>  |                          | [Response Body](#fileprid)     | get pr information only id |
+| GET    | /file/pr/amount |                          | [Response Body](#filepramount) | get pr temlates amount     |
+
 ### /file/pr
+
+#### Request Query
+
+```json
+// case 1 - page=2, amount=3 -> 6 ~ 8 [200]
+"http://localhost:8080/file/pr?page=2&amount=3"
+
+// case 2 - page=1 -> amount will be 20 -> 0 ~ 19 [200]
+"http://localhost:8080/file/pr?page=1"
+```
 
 #### Response Body
 
@@ -215,52 +416,30 @@ toc: true
 [
   {
     "_id": "64f175c218eed0c9b21a2f2e",
-    "title": "preset1",
     "repoName": "AgainIoT/Open-Set-Go",
     "repoUrl": "https://github.com/AgainIoT/Open-Set-Go",
-    "content": "### Describe changes\n\n_Describe a summary of the changes and the related issue to communicate to the maintainers why we should accept this pull request._\n\n### Issue number or link\n\n### Types of changes\n\nWhat is the type of code change?\n_Put an `x` in the boxes that apply_\n\n- [ ] Bugfix (changes that resolve errors)\n- [ ] New feature (changes which adds functionality)\n- [ ] Breaking change (big changes that affect existing functionality)\n- [ ] Documentation Update\n\n### Checklist\n\n_Put an `x` in the boxes that apply. You can also fill these out after creating the PR. If you're unsure about any of them, don't hesitate to ask. We're here to help! This is simply a reminder of what we are going to look for before merging your code._\n\n- [ ] I have read the \"README.md\"\n- [ ] My code follows the style guidelines of this project\n- [ ] My changes generate no new warnings\n- [ ] Lint and unit tests pass locally with my changes\n- [ ] I have added tests that prove my fix is effective or that my feature works\n- [ ] I have added necessary documentation\n- [ ] Any dependent changes have been merged and published in downstream modules\n\n### Further comments\n\n_Please let me know if there's anything else to explain_"
+    "star": 26
   },
   {
     "_id": "64f2fedb2a1079c11a9a646e",
     "title": "simple-preset",
     "repoName": "michaelkolesidis/javascript-software-synthesizer",
     "repoUrl": "https://github.com/michaelkolesidis/javascript-software-synthesizer",
-    "content": "### Describe your changes\n\n### Issue ticket number and link\n\n### Checklist before requesting a review\n\n- [ ] I have performed a self-review of my code\n- [ ] If it is a core feature, I have added thorough tests.\n- [ ] Do we need to implement analytics?\n- [ ] Will this be part of a product update? If yes, please write one phrase about this update.\n\nThanks for contributing to JSS-01 | JavaScript Software Synthesizer!"
+    "star": 20
   },
   {
     "_id": "64f324482a1079c11a9a6470",
     "title": "detail-preset",
     "repoName": "OpenRoberta/openroberta-lab",
     "repoUrl": "https://github.com/OpenRoberta/openroberta-lab",
-    "content": "## Description\n\nPlease include a summary of the change and which issue is fixed. Please also include relevant motivation and context. List any dependencies that are required\nfor this change.\n\nPlease *never* include a issue number (as #NUMBER) taken from our github issue tracker in the pull request. If the pull request is changed again and again, this\nfloods the issue with irrelevant commit numbers. Of course the *pure* NUMBER can be used for documentation purposes. If the pull request is accepted, the issue\nnumber will be added during that step.\n\n### Type of change\n\nPlease delete options that are not relevant.\n\n- [ ] Bug fix (non-breaking change which fixes an issue)\n- [ ] New feature (non-breaking change which adds functionality)\n- [ ] Breaking change (fix or feature that would cause existing functionality to not work as expected)\n- [ ] This change requires a documentation update\n\n## How Has This Been Tested?\n\nPlease describe the tests that you ran to verify your changes. Provide instructions so we can reproduce. Please also list any relevant details for your test\nconfiguration\n\n**Test Configuration**:\n\n* Firmware version:\n* Hardware:\n* Toolchain:\n* SDK:\n* OS:\n\n## Checklist:\n\n- [ ] My code follows the style guidelines of this project\n- [ ] I have performed a self-review of my own code\n- [ ] I have commented my code, particularly in hard-to-understand areas\n- [ ] I have made corresponding changes to the documentation\n- [ ] My changes generate no new warnings\n- [ ] I have added tests that prove my fix is effective or that my feature works\n- [ ] New and existing unit tests pass locally with my changes\n- [ ] Any dependent changes have been merged and published in downstream modules"
+    "star": 100000
   },
   {
     "_id": "64f326072a1079c11a9a6471",
     "title": "comment-preset",
     "repoName": "inversify/InversifyJS",
     "repoUrl": "https://github.com/inversify/InversifyJS",
-    "content": "<!--- Provide a general summary of your changes in the Title above -->\n\n### Description\n\n<!--- Describe your changes in detail -->\n\n### Related Issue\n\n<!--- This project only accepts pull requests related to open issues -->\n<!--- If suggesting a new feature or change, please discuss it in an issue first -->\n<!--- If fixing a bug, there should be an issue describing it with steps to reproduce -->\n<!--- Please link to the issue here: -->\n\n### Motivation and Context\n\n<!--- Why is this change required? What problem does it solve? -->\n\n### How Has This Been Tested?\n\n<!--- Please describe in detail how you tested your changes. -->\n<!--- Include details of your testing environment, and the tests you ran to -->\n<!--- see how your change affects other areas of the code, etc. -->\n\n### Types of changes\n\n<!--- What types of changes does your code introduce? Put an `x` in all the boxes that apply: -->\n\n- [ ] Updated docs / Refactor code / Added a tests case (non-breaking change)\n- [ ] Bug fix (non-breaking change which fixes an issue)\n- [ ] New feature (non-breaking change which adds functionality)\n- [ ] Breaking change (fix or feature that would cause existing functionality to change)\n\n### Checklist:\n\n<!--- Go over all the following points, and put an `x` in all the boxes that apply. -->\n<!--- If you're unsure about any of these, don't hesitate to ask. We're here to help! -->\n\n- [ ] My code follows the code style of this project.\n- [ ] My change requires a change to the documentation.\n- [ ] I have updated the documentation accordingly.\n- [ ] I have read the **CONTRIBUTING** document.\n- [ ] I have added tests to cover my changes.\n- [ ] All new and existing tests passed.\n- [ ] I have updated the changelog."
-  },
-  {
-    "_id": "64f327232a1079c11a9a6472",
-    "title": "opensource-preset",
-    "repoName": "josephguillaume/hydromad",
-    "repoUrl": "https://github.com/josephguillaume/hydromad",
-    "content": "#### All Submissions:\n\n* [ ] Have you followed the guidelines in our **CONTRIBUTING** document?\n* [ ] Have you checked to ensure there aren't other open [Pull Requests](../../../pulls) for the same update/change?\n\n<!-- Does this resolve or supercede an open Issue or Pull Request?\nIf so, write a line like Closes #12345 for each Issue or PR number that should be closed\nif this Pull Request is merged. -->\n\nCloses #xxxxx\n\n<!-- You can erase any parts of this template not applicable to your Pull Request. -->\n\n\n<!-- These have been added according to the rOpenSci guidelines. -->\n<!-- From: https://www.talater.com/open-source-templates/#/page/99 -->\n\n### Types of changes\n<!--- What types of changes does your code introduce? Put an `x` in all the boxes that apply: -->\n- [ ] Bug fix (non-breaking change which fixes an issue. List the bug ID if applicable)\n- [ ] New feature (non-breaking change which adds functionality)\n- [ ] Breaking change (fix or feature that would cause existing core functionality to change) \n\n\n#### New Feature Submissions checklist:\n<!--- Go over all the following points, and put an `x` in all the boxes that apply. -->\n<!--- If you're unsure about any of these, don't hesitate to ask. We're here to help! -->\n1. [ ] Have you ensured there are no conflicts with major packages (e.g. tidyverse, MASS) or base R packages?\n2. [ ] Does your new feature require documentation, and if so, have you updated the documentation?\n3. [ ] Have you added tests for your features, and do your features pass all tests?\n4. [ ] Have you linted your code with lintr locally prior to submission?\n5. [ ] Have you styled your code with styler locally prior to submission?\n6. [ ] Have you [benchmarked](https://www.alexejgossmann.com/benchmarking_r/) the performance of your code if applicable (e.g. with microbenchmark)?\n7. [ ] Does your new feature comply with existing model APIs (e.g. for models, optimisation algorithms, objective functions)?\n\n\n#### Changes to Core Features:\n<!--- Go over all the following points, and put an `x` in all the boxes that apply. -->\n<!--- If you're unsure about any of these, don't hesitate to ask. We're here to help! -->\n* [ ] Have you added an explanation of what your changes do and why you'd like us to include them?\n* [ ] Have you added tests for your core features and do your core features pass all tests?\n* [ ] Have you successfully run tests with your changes locally?\n* [ ] Does your code run on all major platforms (Windows, macOS, Linux)?\n* [ ] Have you demonstrated backwards compatibility and compatibility with the current development version, or discussed a potential break in backwards compatibility?\n* [ ] Have you updated the package vignettes? "
-  },
-  {
-    "_id": "64f327a82a1079c11a9a6473",
-    "title": "todo-preset",
-    "repoName": "getlago/lago",
-    "repoUrl": "https://github.com/getlago/lago",
-    "content": "### Pull Request template\n\nPlease, go through these steps before you submit a PR.\n\n1. Make sure that your PR is not a duplicate.\n2. If not, then make sure that:\n\n   a. You have done your changes in a separate branch. Branches MUST have descriptive names that start with either the `fix/` or `feature/` prefixes. Good examples are: `fix/signin-issue` or `feature/issue-templates`.\n\n   b. You have a descriptive commit message with a short title (first line).\n\n   c. You have only one commit (if not, squash them into one commit).\n\n   d. `npm test` doesn't throw any error. If it does, fix them first and amend your commit (`git commit --amend`).\n\n3. **After** these steps, you're ready to open a pull request.\n\n   a. Give a descriptive title to your PR.\n\n   b. Describe your changes.\n\n   c. Put `closes #XXXX` in your comment to auto-close the issue that your PR fixes (if such).\n\n   d. Add the corresponding labels to your pull request (ex: feature, improvement, bug...)\n\nIMPORTANT: Please review the [CONTRIBUTING.md](../CONTRIBUTING.md) file for detailed contributing guidelines.\n\n**PLEASE REMOVE THIS TEMPLATE BEFORE SUBMITTING**"
-  },
-  {
-    "_id": "64f3285f2a1079c11a9a6474",
-    "title": "checklist-preset",
-    "repoName": "idyll-lang/idyll",
-    "repoUrl": "https://github.com/idyll-lang/idyll",
-    "content": "- **Please check if the PR fulfills these requirements**\n\n* [ ] Tests for the changes have been added (for bug fixes / features)\n* [ ] Docs have been added / updated (for bug fixes / features)\n\n- **What kind of change does this PR introduce?** (Bug fix, feature, docs update, ...)\n\n* **What is the current behavior?** (You can also link to an open issue here)\n\n- **What is the new behavior (if this is a feature change)?**\n\n* **Does this PR introduce a breaking change?** (What changes might users need to make in their application due to this PR?)\n\n- **Other information**:"
+    "star": 100012
   }
 ]
 ```
@@ -287,85 +466,162 @@ PR?)
 - **Other information**:
 ```
 
-### /file/contributing
+### /file/pr/amount
+
+#### Response Body
+
+```json
+80
+```
+
+## File/issue Module
+
+| Method | Request Path      | Request | Response Body                 | Description                 |
+| ------ | ----------------- | ------- | ----------------------------- | --------------------------- |
+| GET    | /file/issue       |         | [Response Body](#fileissue)   | get issue templates         |
+| GET    | /file/issue/\<id> |         | [Response Body](#fileissueid) | get issue templates content |
+
+### /file/issue
 
 #### Response Body
 
 ```json
 [
-  [
-    {
-      "_id": "64ed7ca9c7efe914a8d14a4f",
-      "type": "0.Welcome",
-      "title": "Welcome to Open-Set-Go contributing guide",
-      "repoName": "AgainIoT/Open-Set-Go",
-      "repoUrl": "https://github.com/AgainIoT/Open-Set-Go",
-      "content": "# Welcome to Open-Set-Go contributing guide\n\nThank you for investing your time in contributing to our Open-Set-Go project! Any contribution you make will be reflected on [Open-Set-Go.io](https://open-set-go.netlify.app/) & [README.md](https://github.com/AgainIoT/Open-Set-Go#contributors) ✨.\n\nWe are committed to fostering a contribution-friendly environment that encourages contributions and aims to evolve into an open-source community. Please have a lot of conversations on [our Discussion](https://github.com/AgainIoT/Open-Set-Go/discussions)!\n\nIn this guide you will get an overview of the contribution workflow from opening an issue, creating a PR, reviewing, and merging the PR.\n<br>"
-    },
-    {
-      "_id": "64ed7cf5c7efe914a8d14a50",
-      "type": "0.Welcome",
-      "title": "Welcome to GitHub docs contributing guide",
-      "repoName": "github/docs",
-      "repoUrl": "https://github.com/github/docs",
-      "content": "# Welcome to GitHub docs contributing guide <!-- omit in toc -->\n\nThank you for investing your time in contributing to our project! Any contribution you make will be reflected on [docs.github.com](https://docs.github.com/en) ✨.\n\nRead our [Code of Conduct](./CODE_OF_CONDUCT.md) to keep our community approachable and respectable.\n\nIn this guide you will get an overview of the contribution workflow from opening an issue, creating a PR, reviewing, and merging the PR.\n\nUse the table of contents icon <img src=\"https://github.com/github/docs/raw/main/contributing/images/table-of-contents.png\" width=\"25\" height=\"25\" /> on the top left corner of this document to get to a specific section of this guide quickly."
-    }
-  ],
-  [
-    {
-      "_id": "64ee1bca9dede57491a7c180",
-      "type": "1.Ways to contribute",
-      "title": "Ways to contribute by Open-Set-Go",
-      "repoName": "AgainIoT/Open-Set-Go",
-      "repoUrl": "https://github.com/AgainIoT/Open-Set-Go",
-      "content": "## Ways to contribute\n\n### Contributors\n\nThere are several ways you can contribute to Open-Set-Go!\n\n- Troubleshoot problems that existed code.\n- Submit Bug/Feature issues related to [bugs](https://github.com/AgainIoT/Open-Set-Go/issues?q=is%3Aopen+is%3Aissue+label%3Abug) or desired [new features](https://github.com/AgainIoT/Open-Set-Go/issues?q=is%3Aopen+is%3Aissue+label%3Afeature-request).\n- Submit Documentation issues for insufficient documents, translations.\n- Start conversation at [Discussions](https://github.com/AgainIoT/Open-Set-Go/discussions) to provide a good example of preset.\n- Start conversation by posting to [Discussions](https://github.com/AgainIoT/Open-Set-Go/discussions) about a framework that needs support.\n- If there's anything you'd like to communicate about our project or open source, feel free to post it on [Discussions](https://github.com/AgainIoT/Open-Set-Go/discussions)! _\"We hope that **Open-Set-Go Discussions** will become an active community.\"_\n\n### Collaborators\n\nIf you want to contribute directly to our project, be our collaborators at Open-Set-Go! Join the [Slack](https://join.slack.com/t/open-set-go/shared_invite/zt-21jwlzs9g-qrajfUblcCtmCqAy0Xxj8w) to become a collaborator!\n\n- **Develop Main Features**: <br>\n  Collaborator will develop the main features with maintainers based on milestone\n  All contributions are equally valuable and valuable to Open-Set-Go projects.and issues.\n\n- **Communication**: <br>\n  Communicate with Open-Set-Go maintainers with [Slack](https://join.slack.com/t/open-set-go/shared_invite/zt-21jwlzs9g-qrajfUblcCtmCqAy0Xxj8w) to carry out the project.\n\n<br>\n\n> All contributions are equally valuable and valuable to Open-Set-Go projects.\n\n<br>"
-    }
-  ]
+  {
+    "type": "Bug_Report",
+    "templates": [
+      {
+        "id": "64ec8e19ad1cef842264f78c",
+        "title": "Bug Report for Web Service"
+      },
+      {
+        "id": "652893f822ee43f98993b51f",
+        "title": "Bug Report for Web Service2"
+      }
+    ]
+  },
+  {
+    "type": "Feature_Request",
+    "templates": [
+      {
+        "id": "6528934c22ee43f98993b51d",
+        "title": "Feature Request for Web Service"
+      }
+    ]
+  },
+  {
+    "type": "Documentation_Issue",
+    "templates": [
+      {
+        "id": "6528938422ee43f98993b51e",
+        "title": "Documentation Issue for Web Service"
+      }
+    ]
+  }
 ]
 ```
 
-### /file/readme/\<id>
-
-#### Response Body
-
-```plain
-## Welcome to Open-Set-Go contributing guide
-
-Thank you for investing your time in contributing to our Open-Set-Go project! Any contribution you make will be
-reflected on [Open-Set-Go.io](https://open-set-go.netlify.app/) &
-[README.md](https://github.com/AgainIoT/Open-Set-Go#contributors) ✨.
-
-We are committed to fostering a contribution-friendly environment that encourages contributions and aims to evolve into
-an open-source community. Please have a lot of conversations on [our
-Discussion](https://github.com/AgainIoT/Open-Set-Go/discussions)!
-
-In this guide you will get an overview of the contribution workflow from opening an issue, creating a PR, reviewing, and
-merging the PR.
-<br>
-```
-
-### /file/readme/\<id>
+### /file/issue/\<id>
 
 #### Response Body
 
 ```json
+{
+  "content": "body:\n  - type: dropdown\n    id: browsers\n    attributes:\n      label: \"Browsers\"\n      description: What browsers are you seeing the problem on?\n      multiple: true\n      options:\n        - Firefox\n        - Chrome\n        - Safari\n        - Microsoft Edge\n        - Opera\n    validations:\n      required: true\n\n  - type: dropdown\n    id: os\n    attributes:\n      label: \"OS\"\n      description: What is the impacted environment?\n      multiple: true\n      options:\n        - Windows\n        - Linux\n        - Mac\n    validations:\n      required: true\n\n  - type: textarea\n    id: description\n    attributes:\n      label: \"Description\"\n      description: Enter an explicit description of your issue and explain the bug briefly and clearly.\n    validations:\n      required: true\n\n  - type: textarea\n    id: reprod-steps\n    attributes:\n      label: \"Reproduction Steps\"\n      description: Explain your issue step by step.\n      render: bash\n    validations:\n      required: true\n\n  - type: textarea\n    id: solution\n    attributes:\n      label: \"Solutions\"\n      description: If you have a solution, please share it.\n      render: bash\n    validations:\n      required: false\n\n  - type: textarea\n    id: screenshot\n    attributes:\n      label: \"Screenshots\"\n      description: Add screenshots to help explain your problem.\n      value: |\n        ![DESCRIPTION](LINK.png)\n      render: bash\n    validations:\n      required: false",
+  "image": "Base64 string! too long..."
+}
+```
+
+## File/contributing Module
+
+| Method | Request Path                | Request                                   | Response Body                              | Description                           |
+| ------ | --------------------------- | ----------------------------------------- | ------------------------------------------ | ------------------------------------- |
+| GET    | /file/contributing          | [Request Query](#filecontributing)        | [Response Body](#filecontributing)         | get contributings information         |
+| GET    | /file/contributing/\<id>    |                                           | [Response Body](#filecontributingid)       | get contributings information only id |
+| GET    | /file/contributing/amount   |                                           | [Response Body](#filecontributingamount)   | get contributing temlates amount      |
+| POST   | /file/contributing/generate | [Request Body](#filecontributinggenerate) | [Response Body](#filecontributinggenerate) | get contributings for generate        |
+
+### /file/contributing
+
+#### Request Query
+
+```json
+// case 1 - page=2, amount=3 -> 6 ~ 8 [200]
+"http://localhost:8080/file/contributing?page=2&amount=3"
+
+// case 2 - page=1 -> amount will be 20 -> 0 ~ 19 [200]
+"http://localhost:8080/file/contributing?page=1"
+```
+
+#### Response Body
+
+```json
+// case 1 - page=2, amount=3 -> 6 ~ 8 [200]
 [
   {
-    "_id": "64ed835fc7efe914a8d14a51",
-    "type": "welcome",
-    "title": "title1",
-    "repoName": "test1",
-    "repoUrl": "www.google.com",
-    "content": "content1"
+    "_id": "652861f1dea21592d9928f29",
+    "repoName": "aws/awc-cli",
+    "star": 14330,
+    "license": "Apache License 2.0"
   },
   {
-    "_id": "64ed838ac7efe914a8d14a52",
-    "type": "welcome",
-    "title": "title2",
-    "repoName": "test2",
-    "repoUrl": "www.google.com",
-    "content": "content2"
+    "_id": "652861aadea21592d9928f28",
+    "repoName": "GoogleCloudPlatform/cloud-builders",
+    "star": 1308,
+    "license": "Apache License 2.0"
+  },
+  {
+    "_id": "65286020dea21592d9928f26",
+    "repoName": "octokit/core.js",
+    "star": 1082,
+    "license": "MIT License"
   }
+]
+
+// case 2 - page=1 -> amount will be 20 -> 0 ~ 19 [200]
+[
+    {
+        "_id": "6528614ddea21592d9928f27",
+        "repoName": "gohugoio/hugo",
+        "star": 69355,
+        "license": "Apache License 2.0"
+    },
+    {
+        "_id": "65285f58dea21592d9928f23",
+        "repoName": "expressjs/express",
+        "star": 62068,
+        "license": "MIT License"
+    },
+    {
+        "_id": "65285d90dea21592d9928f22",
+        "repoName": "nestjs/nest",
+        "star": 60270,
+        "license": "MIT License"
+    },
+    {
+        "_id": "652861f1dea21592d9928f29",
+        "repoName": "aws/awc-cli",
+        "star": 14330,
+        "license": "Apache License 2.0"
+    },
+    {
+        "_id": "652861aadea21592d9928f28",
+        "repoName": "GoogleCloudPlatform/cloud-builders",
+        "star": 1308,
+        "license": "Apache License 2.0"
+    },
+    {
+        "_id": "65286020dea21592d9928f26",
+        "repoName": "octokit/core.js",
+        "star": 1082,
+        "license": "MIT License"
+    },
+    {
+        "_id": "65285c35dea21592d9928f21",
+        "repoName": "AgainIoT/Open-Set-Go_server",
+        "star": 8,
+        "license": "Apache License 2.0"
+    }
 ]
 ```
 
@@ -373,6 +629,352 @@ merging the PR.
 
 #### Response Body
 
+```bash
+## Content of the contributing.md... too long...
+```
+
+### /file/contributing/amount
+
+#### Response Body
+
+```json
+{
+  "amount": 7
+}
+```
+
+### /file/contributing/generate
+
+#### Request Body
+
+```json
+{
+  "owner": "AgainIoT",
+  "repoName": "Open-Set-Go",
+  "description": "Open-Set-Go is the name of asdfadsfasdfasdfadsadsfasasd", // optional
+  "license": "Apaceh 2.0 License" // optional
+}
+```
+
+#### Response Body
+
+```json
+[
+  {
+    "_id": "6527a963f2ab4fc291e5ffcf",
+    "index": 1,
+    "type": "Title and Description",
+    "content": "# Open-Set-Go\n\n<p align=\"center\">\n<a href=\"https://github.com/AgainIoT/Open-Set-Go/\" target=\"blank\"><img src=\"https://github.com/AgainIoT/Open-Set-Go/raw/main/.github/images/Open-Set-Go.png\" width=\"200\" alt=\"Enter Your Logo!\" /></a>\n</p>\n\n<p align=\"center\">\n  Open-Set-Go is the name of asdfadsfasdfasdfadsadsfasasd\n</p>\n\n<p align=\"center\">\n  <a href=\"/LICENSE\"><img src=\"https://img.shields.io/github/license/AgainIoT/Open-Set-Go\" alt=\"License\" /></a>\n  <a href=\"https://github.com/AgainIoT/Open-Set-Go/graphs/contributors\" target=\"_blank\"><img src=\"https://img.shields.io/github/contributors-anon/AgainIoT/Open-Set-Go\" alt=\"contributors\" /></a>\n  <a href=\"https://github/AgainIoT/Open-Set-Go\"><img src=\"https://img.shields.io/github/last-commit/AgainIoT/Open-Set-Go\" alt=\"your repo's last-commit\" /></a>\n  <a href=\"https://github/AgainIoT/Open-Set-Go\"><img src=\"https://img.shields.io/github/stars/AgainIoT/Open-Set-Go\" alt=\"your repo's stars\" /></a>\n  <a href=\"https://github/AgainIoT/Open-Set-Go\"><img src=\"https://img.shields.io/github/forks/AgainIoT/Open-Set-Go\" alt=\"your repo's forks\" /></a>\n  <a href=\"https://github/AgainIoT/Open-Set-Go\"><img src=\"https://img.shields.io/github/watchers/AgainIoT/Open-Set-Go\" alt=\"your repo's watchers\" /></a>\n  <a href=\"https://github/AgainIoT/Open-Set-Go\"><img src=\"https://img.shields.io/github/issues/AgainIoT/Open-Set-Go\" alt=\"your repo's issues\" /></a>\n</p>\n"
+  },
+  {
+    "_id": "6527ab64f2ab4fc291e5ffd1",
+    "index": 6,
+    "type": "License",
+    "content": "# License\n\nOpen-Set-Go is released under Apaceh 2.0 License.\nSee the [LICENSE file](\"./LICENSE\") for details.\n"
+  }
+]
+```
+
+## File/readme Module
+
+| Method | Request Path          | Request                             | Response Body                        | Description                     |
+| ------ | --------------------- | ----------------------------------- | ------------------------------------ | ------------------------------- |
+| GET    | /file/readme          | [Request Query](#filereadme)        | [Response Body](#filereadme)         | get readmes information         |
+| GET    | /file/readme/\<id>    |                                     | [Response Body](#filereadmeid)       | get readmes information only id |
+| GET    | /file/readme/amount   |                                     | [Response Body](#filereadmeamount)   | get readme temlates amount      |
+| POST   | /file/readme/generate | [Request Body](#filereadmegenerate) | [Response Body](#filereadmegenerate) | get readmes for generate        |
+
+### /file/readme
+
+#### Request Query
+
+```json
+// case 1 - page=2, amount=3 -> 6 ~ 8 [200]
+"http://localhost:8080/file/readme?page=2&amount=3"
+
+// case 2 - page=1 -> amount will be 20 -> 0 ~ 19 [200]
+"http://localhost:8080/file/readme?page=1"
+```
+
+#### Response Body
+
+```json
+// case 1 - page=2, amount=3 -> 6 ~ 8 [200]
+[
+  {
+    "_id": "652861f1dea21592d9928f29",
+    "repoName": "aws/awc-cli",
+    "star": 14330,
+    "license": "Apache License 2.0"
+  },
+  {
+    "_id": "652861aadea21592d9928f28",
+    "repoName": "GoogleCloudPlatform/cloud-builders",
+    "star": 1308,
+    "license": "Apache License 2.0"
+  },
+  {
+    "_id": "65286020dea21592d9928f26",
+    "repoName": "octokit/core.js",
+    "star": 1082,
+    "license": "MIT License"
+  }
+]
+
+// case 2 - page=1 -> amount will be 20 -> 0 ~ 19 [200]
+[
+    {
+        "_id": "6528614ddea21592d9928f27",
+        "repoName": "gohugoio/hugo",
+        "star": 69355,
+        "license": "Apache License 2.0"
+    },
+    {
+        "_id": "65285f58dea21592d9928f23",
+        "repoName": "expressjs/express",
+        "star": 62068,
+        "license": "MIT License"
+    },
+    {
+        "_id": "65285d90dea21592d9928f22",
+        "repoName": "nestjs/nest",
+        "star": 60270,
+        "license": "MIT License"
+    },
+    {
+        "_id": "652861f1dea21592d9928f29",
+        "repoName": "aws/awc-cli",
+        "star": 14330,
+        "license": "Apache License 2.0"
+    },
+    {
+        "_id": "652861aadea21592d9928f28",
+        "repoName": "GoogleCloudPlatform/cloud-builders",
+        "star": 1308,
+        "license": "Apache License 2.0"
+    },
+    {
+        "_id": "65286020dea21592d9928f26",
+        "repoName": "octokit/core.js",
+        "star": 1082,
+        "license": "MIT License"
+    },
+    {
+        "_id": "65285c35dea21592d9928f21",
+        "repoName": "AgainIoT/Open-Set-Go_server",
+        "star": 8,
+        "license": "Apache License 2.0"
+    }
+]
+```
+
+### /file/readme/\<id>
+
+#### Response Body
+
+```bash
+## Content of the readme.md... too long...
+```
+
+### /file/readme/amount
+
+#### Response Body
+
+```json
+{
+  "amount": 7
+}
+```
+
+### /file/readme/generate
+
+#### Request Body
+
+```json
+{
+  "owner": "AgainIoT",
+  "repoName": "Open-Set-Go",
+  "description": "Open-Set-Go is the name of asdfadsfasdfasdfadsadsfasasd", // optional
+  "license": "Apaceh 2.0 License" // optional
+}
+```
+
+#### Response Body
+
+```json
+[
+  {
+    "_id": "6527a963f2ab4fc291e5ffcf",
+    "index": 1,
+    "type": "Title and Description",
+    "content": "# Open-Set-Go\n\n<p align=\"center\">\n<a href=\"https://github.com/AgainIoT/Open-Set-Go/\" target=\"blank\"><img src=\"https://github.com/AgainIoT/Open-Set-Go/raw/main/.github/images/Open-Set-Go.png\" width=\"200\" alt=\"Enter Your Logo!\" /></a>\n</p>\n\n<p align=\"center\">\n  Open-Set-Go is the name of asdfadsfasdfasdfadsadsfasasd\n</p>\n\n<p align=\"center\">\n  <a href=\"/LICENSE\"><img src=\"https://img.shields.io/github/license/AgainIoT/Open-Set-Go\" alt=\"License\" /></a>\n  <a href=\"https://github.com/AgainIoT/Open-Set-Go/graphs/contributors\" target=\"_blank\"><img src=\"https://img.shields.io/github/contributors-anon/AgainIoT/Open-Set-Go\" alt=\"contributors\" /></a>\n  <a href=\"https://github/AgainIoT/Open-Set-Go\"><img src=\"https://img.shields.io/github/last-commit/AgainIoT/Open-Set-Go\" alt=\"your repo's last-commit\" /></a>\n  <a href=\"https://github/AgainIoT/Open-Set-Go\"><img src=\"https://img.shields.io/github/stars/AgainIoT/Open-Set-Go\" alt=\"your repo's stars\" /></a>\n  <a href=\"https://github/AgainIoT/Open-Set-Go\"><img src=\"https://img.shields.io/github/forks/AgainIoT/Open-Set-Go\" alt=\"your repo's forks\" /></a>\n  <a href=\"https://github/AgainIoT/Open-Set-Go\"><img src=\"https://img.shields.io/github/watchers/AgainIoT/Open-Set-Go\" alt=\"your repo's watchers\" /></a>\n  <a href=\"https://github/AgainIoT/Open-Set-Go\"><img src=\"https://img.shields.io/github/issues/AgainIoT/Open-Set-Go\" alt=\"your repo's issues\" /></a>\n</p>\n"
+  },
+  {
+    "_id": "6527ab64f2ab4fc291e5ffd1",
+    "index": 6,
+    "type": "License",
+    "content": "# License\n\nOpen-Set-Go is released under Apaceh 2.0 License.\nSee the [LICENSE file](\"./LICENSE\") for details.\n"
+  }
+]
+```
+
+## Review Module
+
+| Method | Request Path      | Request Body                               | Response Body                     | Description                                                               |
+| ------ | ----------------- | ------------------------------------------ | --------------------------------- | ------------------------------------------------------------------------- |
+| POST   | /review/template  | cookies + [Request Body](#reviewtemplate)  | [Response Body](#reviewtemplate)  | review pr & issue template, readme, contributing exist                    |
+| POST   | /review/community | cookies + [Request Body](#reviewcommuntiy) | [Response Body](#reviewcommuntiy) | review description, code of conduct, discussion, license exist or enabled |
+| POST   | /review/seurity   | cookies + [Request Body](#reviewsecurity)  | [Response Body](#reviewsecurity)  | review dependabot, codeql, secretscanning, security policy enabled        |
+
+### /review/template
+
+#### Request Body
+
+```json
+{
+  "owner": "AgainIoT",
+  "repoName": "Open-Set-Go"
+}
+```
+
+#### Response Body
+
+```json
+{
+  "pr": true, // or false
+  "issue": true, // or false
+  "contributing": true, // or false
+  "readme": true // or false
+}
+```
+
+### /review/community
+
+#### Request Body
+
+```json
+{
+  "owner": "AgainIoT",
+  "repoName": "Open-Set-Go"
+}
+```
+
+#### Response Body
+
+```json
+{
+  "description": true,
+  "license": {
+    "exist": true,
+    "name": "MIT"
+  },
+  "conduct": true,
+  "discussion": true
+}
+```
+
+### /review/security
+
+#### Request Body
+
+```json
+{
+  "owner": "AgainIoT",
+  "repoName": "Open-Set-Go"
+}
+```
+
+#### Response Body
+
+```json
+{
+  "codeql": true,
+  "secretScan": true,
+  "securityPolicy": true,
+  "dependabot": true
+}
+```
+
+## Review/file Module
+
+| Method | Request Path              | Request Body                                      | Response Body                            | Description                                                   |
+| ------ | ------------------------- | ------------------------------------------------- | ---------------------------------------- | ------------------------------------------------------------- |
+| POST   | /review/file/pr           | cookies + [Request Body](#reviewfilepr)           | [Response Body](#reviewfilepr)           | create Pull-Request at target repository with pr template     |
+| POST   | /review/file/issue        | cookies + [Request Body](#reviewfileissue)        | [Response Body](#reviewfileissue)        | create Pull-Request at target repository with issue template  |
+| POST   | /review/file/contributing | cookies + [Request Body](#reviewfilecontributing) | [Response Body](#reviewfilecontributing) | create Pull-Request at target repository with CONTRIBUTING.md |
+| POST   | /review/file/readme       | cookies + [Request Body](#reviewfilereadme)       | [Response Body](#reviewfilereadme)       | create Pull-Request at target repository with README.md       |
+
+### /review/file/pr
+
+#### Request Body
+
+```json
+{
+  "owner": "AgainIoT",
+  "repoName": "Open-Set-Go",
+  "content": "## test Markdown\n- test1\n- test2"
+}
+```
+
+#### Response Body
+
 ```plain
-content1
+https://github.com/AgainIoT/Open-Set-Go/pull/12
+```
+
+### /review/file/issue
+
+#### Request Body
+
+```json
+{
+  "owner": "AgainIoT",
+  "repoName": "Open-Set-Go",
+  "issues": [
+    {
+      "category": "Bug_Report",
+      "content": "---\nname: \"🐛 Bug Report\"\ndescription: Report a bug\ntitle: \"🐛 [BUG] - <title>\"\nlabels: [\"bug\"]\nassignees: []"
+    },
+    {
+      "category": "Feature_Request",
+      "content": "---\nname: \"🐛 Bug Report\"\ndescription: Report a bug\ntitle: \"🐛 [BUG] - <title>\"\nlabels: [\"bug\"]\nassignees: []"
+    }
+  ]
+}
+```
+
+### /review/file/contributing
+
+#### Request Body
+
+```json
+{
+  "owner": "AgainIoT",
+  "repoName": "Open-Set-Go",
+  "content": "## test Markdown\n- test1\n- test2"
+}
+```
+
+#### Response Body
+
+```plain
+https://github.com/AgainIoT/Open-Set-Go/pull/12
+```
+
+### /review/file/readme
+
+#### Request Body
+
+```json
+{
+  "owner": "AgainIoT",
+  "repoName": "Open-Set-Go",
+  "content": "## test Markdown\n- test1\n- test2"
+}
+```
+
+#### Response Body
+
+```plain
+https://github.com/AgainIoT/Open-Set-Go/pull/12
 ```
