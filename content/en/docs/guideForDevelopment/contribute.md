@@ -13,7 +13,7 @@ weight: 160
 toc: true
 ---
 
-_You can also check this out on Contributing.md on our GitHub. [Shortcut of Contributing.md](https://github.com/AgainIoT/Open-Set-Go/blob/main/CONTRIBUTING.md)_
+_You can also check this out on CONTRIBUTING.md on our GitHub. [Shortcut of CONTRIBUTING.md](https://github.com/AgainIoT/Open-Set-Go/blob/main/CONTRIBUTING.md)_
 
 ### Welcome to Open-Set-Go contributing guide
 
