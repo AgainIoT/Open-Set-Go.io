@@ -13,5 +13,5 @@ weight: 160
 toc: true
 ---
 {{< details "Q. How do you contribute to the Open-Set-Go project?" >}}
-To learn how to contribute, visit contributing.md. [Shortcut to contributing.md](http://github.com/AgainIoT/Open-Set-Go/blob/main/CONTRIBUTING.md)
+To learn how to contribute, visit CONTRIBUTING.md. [Shortcut to CONTRIBUTING.md](http://github.com/AgainIoT/Open-Set-Go/blob/main/CONTRIBUTING.md)
 {{< /details >}}
