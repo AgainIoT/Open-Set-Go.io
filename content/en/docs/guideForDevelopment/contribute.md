@@ -13,7 +13,7 @@ weight: 160
 toc: true
 ---
 
-_You can also check this out on Contributing.md on our GitHub. [Shortcut of Contributing.md](https://github.com/AgainIoT/Open-Set-Go/blob/main/CONTRIBUTING.md)_
+_You can also check this out on CONTRIBUTING.md on our GitHub. [Shortcut of CONTRIBUTING.md](https://github.com/AgainIoT/Open-Set-Go/blob/main/CONTRIBUTING.md)_
 
 ### Welcome to Open-Set-Go contributing guide
 
@@ -111,14 +111,6 @@ _For more information, see [CODE_OF_CONDUCT.md](https://github.com/AgainIoT/Open
 ### GitLab-flow
 
 We are developing using GitLab-flow. See [GitLab-flow](https://about.gitlab.com/blog/2023/07/27/gitlab-flow-duo/) for more information.
-
-#### For Contributors
-
-<img src="https://github.com/AgainIoT/Open-Set-Go/blob/main/.github/images/contributors_branching.jpg?raw=true"/>
-
-#### For Collaborators
-
-<img src="https://github.com/AgainIoT/Open-Set-Go/blob/main/.github/images/collaborators_branching.jpg?raw=true"/>
 
 ### Commit Message Style
 
