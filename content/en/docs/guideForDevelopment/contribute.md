@@ -112,14 +112,6 @@ _For more information, see [CODE_OF_CONDUCT.md](https://github.com/AgainIoT/Open
 
 We are developing using GitLab-flow. See [GitLab-flow](https://about.gitlab.com/blog/2023/07/27/gitlab-flow-duo/) for more information.
 
-#### For Contributors
-
-<img src="https://github.com/AgainIoT/Open-Set-Go/blob/main/.github/images/contributors_branching.jpg?raw=true"/>
-
-#### For Collaborators
-
-<img src="https://github.com/AgainIoT/Open-Set-Go/blob/main/.github/images/collaborators_branching.jpg?raw=true"/>
-
 ### Commit Message Style
 
 | 타입     | 내용                                                                                  |
